@@ -4,6 +4,7 @@
   "description": "Sabor casero",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sami kitian Sunny",
