@@ -1,0 +1,26 @@
+<div class="comentarios-container">
+  <h2>Comentarios ({{ comentarios.length }})</h2>
+
+  <div *ngIf="cargando" class="cargando">Cargando comentarios...</div>
+
+  <app-comentario-form
+    *ngIf="!cargando"
+    [idReceta]="idReceta"
+    (comentarioCreado)="manejarComentarioActualizado()">
+  </app-comentario-form>
+
+  <div class="comentarios-lista">
+    <app-comentario-item
+      *ngFor="let comentario of comentarios"
+      [comentario]="comentario"
+      [idReceta]="idReceta"
+      [usuarioActualId]="usuarioActualId"
+      (comentarioEditado)="manejarComentarioActualizado()"
+      (comentarioEliminado)="manejarComentarioActualizado()">
+    </app-comentario-item>
+
+    <div *ngIf="!cargando && comentarios.length === 0" class="sin-comentarios">
+      Sé el primero en comentar esta receta
+    </div>
+  </div>
+</div>

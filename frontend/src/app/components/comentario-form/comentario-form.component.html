@@ -1,0 +1,15 @@
+<div class="comentario-form">
+  <textarea
+    [formControl]="comentarioControl"
+    placeholder="Escribe tu comentario..."></textarea>
+
+  <div *ngIf="comentarioControl.invalid && comentarioControl.touched" class="error">
+    El comentario debe tener al menos 3 caracteres
+  </div>
+
+  <button
+    (click)="publicarComentario()"
+    [disabled]="comentarioControl.invalid || enviando" class="btn">
+    {{ enviando ? 'Publicando...' : 'Publicar Comentario' }}
+  </button>
+</div>

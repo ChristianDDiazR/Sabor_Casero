@@ -1,0 +1,31 @@
+/* src/app/components/comentario-form/comentario-form.component.css */
+.comentario-form {
+  background-color: #E2D0C2;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.btn {
+  color: #E2D0C2;
+  background-color: #7B5153;
+  border-radius: 4px;
+}
+
+.comentario-form textarea {
+  margin-bottom: 10px;
+  background-color: #DAB0A0;
+}
+
+.comentario-form .error {
+  color: #ff0000;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.placeholder-text {
+  color: #999;
+  font-style: italic;
+  margin-bottom: 10px;
+}

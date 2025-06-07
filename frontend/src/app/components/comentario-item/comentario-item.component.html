@@ -1,0 +1,43 @@
+<div class="comentario">
+  <div class="comentario-header">
+    <strong>{{ comentario.usuario?.nombre || 'Usuario' }}</strong>
+  </div>
+
+  <div *ngIf="!editando; else edicionTemplate">
+    <p>{{ comentario.Comentario }}</p>
+    <div class="acciones">
+      <button (click)="toggleRespuesta()">Responder</button>
+      <ng-container *ngIf="usuarioActualId === comentario.id_usuarioComentario">
+        <button (click)="iniciarEdicion()">Editar</button>
+        <button (click)="comentarioEliminado.emit()">Eliminar</button>
+      </ng-container>
+    </div>
+  </div>
+
+  <ng-template #edicionTemplate>
+    <textarea [(ngModel)]="textoEditado"></textarea>
+    <div class="acciones-edicion">
+      <button (click)="guardarEdicion()">Guardar</button>
+      <button (click)="cancelarEdicion()">Cancelar</button>
+    </div>
+  </ng-template>
+
+  <div *ngIf="respondiendo" class="respuesta-form">
+    <app-comentario-form
+      [idReceta]="idReceta"
+      [idComentarioPadre]="comentario.id_comentario"
+      (comentarioCreado)="respondiendo = false; comentarioEditado.emit()">
+    </app-comentario-form>
+  </div>
+
+  <div class="respuestas" *ngIf="comentario.respuestas && comentario.respuestas.length > 0">
+    <app-comentario-item
+      *ngFor="let respuesta of comentario.respuestas"
+      [comentario]="respuesta"
+      [idReceta]="idReceta"
+      [usuarioActualId]="usuarioActualId"
+      (comentarioEditado)="comentarioEditado.emit()"
+      (comentarioEliminado)="comentarioEliminado.emit()">
+    </app-comentario-item>
+  </div>
+</div>

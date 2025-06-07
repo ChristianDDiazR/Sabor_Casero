@@ -1,0 +1,32 @@
+/* src/app/components/comentario-list/comentario-list.component.css */
+.comentarios-container {
+  margin-top: 2rem;
+}
+
+.comentarios-container h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #7B5153;
+  border-bottom: 2px solid #7B5153;
+  padding-bottom: 0.5rem;
+}
+
+.cargando {
+  font-style: italic;
+  color: #666;
+  margin-top: 1rem;
+}
+
+.sin-comentarios {
+  font-style: italic;
+  color: #E2D0C2;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #7B5153;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.comentarios-lista {
+  margin-top: 2rem;
+}

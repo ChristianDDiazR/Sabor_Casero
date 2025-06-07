@@ -1,0 +1,61 @@
+/* src/app/components/comentario-item/comentario-item.component.css */
+.comentario {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-left: 3px solid #4CAF50;
+  background-color: #fff;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+.comentario-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.comentario-header strong {
+  color: #333;
+  font-weight: 600;
+}
+
+.respuestas {
+  margin-left: 2rem;
+  margin-top: 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid #f0f0f0;
+}
+
+.acciones {
+  margin-top: 0.5rem;
+}
+
+.acciones button {
+  background: none;
+  color: #B37670;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  margin-right: 10px;
+  margin-top: 0;
+}
+
+.acciones button:hover {
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.acciones-edicion {
+  margin-top: 0.5rem;
+}
+
+.acciones-edicion button {
+  margin-top: 0;
+  margin-right: 10px;
+}
+
+.respuesta-form {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
