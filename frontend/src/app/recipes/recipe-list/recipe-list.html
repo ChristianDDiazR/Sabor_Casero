@@ -1,0 +1,11 @@
+<h2>Recetas disponibles</h2>
+
+<ul *ngIf="recipes.length > 0; else noData">
+  <li *ngFor="let receta of recipes">
+    <strong>{{ receta.nombre_receta }}</strong> - Categoría: {{ receta.nombre_categoria }} - Autor: {{ receta.nombre_usuario }}
+  </li>
+</ul>
+
+<ng-template #noData>
+  <p>No hay recetas disponibles.</p>
+</ng-template>
