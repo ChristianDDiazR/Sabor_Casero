@@ -2,7 +2,7 @@ const mc = require('../config/db');
 
 const Usuario = {
     crear: (usuario, callback) => {
-        const query = `INSERT INTO USUARIO (nombre_usuario, edad, descripcion, contacto, mail, contraseña, foto_perfil)
+        const query = `INSERT INTO USUARIO (nombre_usuario, edad, descripcion, contacto, mail, password, foto_perfil)
                        VALUES (?, ?, ?, ?, ?, ?, ?)`;
         
         mc.query(query, [
@@ -11,7 +11,7 @@ const Usuario = {
             usuario.descripcion,
             usuario.contacto,
             usuario.mail,
-            usuario.contraseña,
+            usuario.password,
             usuario.foto_perfil
         ], callback);
     },

@@ -1,0 +1,12 @@
+<h2>Registro</h2>
+<form (ngSubmit)="registrar()">
+  <input [(ngModel)]="usuario.nombre_usuario" name="nombre_usuario" placeholder="Nombre" required />
+  <input [(ngModel)]="usuario.edad" name="edad" type="number" placeholder="Edad" />
+  <input [(ngModel)]="usuario.descripcion" name="descripcion" placeholder="Descripción" />
+  <input [(ngModel)]="usuario.contacto" name="contacto" placeholder="Contacto" />
+  <input [(ngModel)]="usuario.mail" name="mail" placeholder="Email" required />
+  <input [(ngModel)]="usuario.contrasena" name="contrasena" type="password" placeholder="Contraseña" required />
+  <input [(ngModel)]="usuario.foto_perfil" name="foto_perfil" placeholder="URL de Foto" />
+  <button type="submit">Registrar</button>
+</form>
+<p>{{ mensaje }}</p>

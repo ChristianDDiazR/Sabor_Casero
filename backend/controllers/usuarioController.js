@@ -5,10 +5,10 @@ const jwt = require('jsonwebtoken');
 const SECRET_KEY = 'clave_super_secreta_sabor_casero';
 
 exports.registrar = (req, res) => {
-    const { nombre_usuario, edad, descripcion, contacto, mail, contraseña, foto_perfil } = req.body;
+    const { nombre_usuario, edad, descripcion, contacto, mail, password, foto_perfil } = req.body;
 
-    bcrypt.hash(contraseña, 10, (err, hash) => {
-        if (err) return res.status(500).json({ mensaje: 'Error al encriptar contraseña' });
+    bcrypt.hash(password, 10, (err, hash) => {
+        if (err) return res.status(500).json({ mensaje: 'Error al encriptar password' });
 
         Usuario.crear({
             nombre_usuario,
@@ -16,7 +16,7 @@ exports.registrar = (req, res) => {
             descripcion,
             contacto,
             mail,
-            contraseña: hash,
+            password: hash,
             foto_perfil
         }, (err, resultado) => {
             if (err) {
@@ -32,7 +32,7 @@ exports.registrar = (req, res) => {
 };
 
 exports.login = (req, res) => {
-    const { mail, contraseña } = req.body;
+    const { mail, password } = req.body;
 
     Usuario.buscarPorMail(mail, (err, resultados) => {
         if (err || resultados.length === 0) {
@@ -41,9 +41,9 @@ exports.login = (req, res) => {
 
         const usuario = resultados[0];
 
-        bcrypt.compare(contraseña, usuario.contraseña, (err, coincide) => {
+        bcrypt.compare(password, usuario.password, (err, coincide) => {
             if (!coincide) {
-                return res.status(401).json({ mensaje: 'Contraseña incorrecta' });
+                return res.status(401).json({ mensaje: 'password incorrecta' });
             }
 
             const token = jwt.sign(

@@ -1,0 +1,7 @@
+<h2>Login</h2>
+<form (ngSubmit)="login()">
+  <input [(ngModel)]="credenciales.mail" name="mail" placeholder="Email" required />
+  <input [(ngModel)]="credenciales.password" name="password" type="password" placeholder="password" required />
+  <button type="submit">Iniciar sesión</button>
+</form>
+<p>{{ mensaje }}</p>
