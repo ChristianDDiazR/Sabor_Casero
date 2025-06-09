@@ -1,0 +1,130 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom right, #f0f4f8, #e9eff5);
+  height: 100%;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.logo {
+  background: linear-gradient(to right, #4f46e5, #22c55e);
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+.input-group .icon {
+  margin-right: 0.5rem;
+}
+
+.input-group input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+}
+
+.forgot {
+  display: block;
+  text-align: right;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.primary-btn {
+  background: #0f172a;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  width: 100%;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.divider {
+  margin: 1rem 0;
+  color: #9ca3af;
+}
+
+.google-btn {
+  background: white;
+  border: 1px solid #d1d5db;
+  padding: 0.75rem;
+  width: 100%;
+  border-radius: 8px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.google-btn .icon {
+  margin-right: 0.5rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.register {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 1rem;
+}
+
+.register a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.mensaje {
+  margin-top: 1rem;
+  color: #dc2626;
+}

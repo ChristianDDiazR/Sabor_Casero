@@ -1,12 +1,49 @@
-<h2>Registro</h2>
-<form (ngSubmit)="registrar()">
-  <input [(ngModel)]="usuario.nombre_usuario" name="nombre_usuario" placeholder="Nombre" required />
-  <input [(ngModel)]="usuario.edad" name="edad" type="number" placeholder="Edad" />
-  <input [(ngModel)]="usuario.descripcion" name="descripcion" placeholder="Descripción" />
-  <input [(ngModel)]="usuario.contacto" name="contacto" placeholder="Contacto" />
-  <input [(ngModel)]="usuario.mail" name="mail" placeholder="Email" required />
-  <input [(ngModel)]="usuario.contrasena" name="contrasena" type="password" placeholder="Contraseña" required />
-  <input [(ngModel)]="usuario.foto_perfil" name="foto_perfil" placeholder="URL de Foto" />
-  <button type="submit">Registrar</button>
-</form>
-<p>{{ mensaje }}</p>
+<div class="register-container">
+  <a href="/" class="back-link">← Volver a Sabor Casero</a>
+
+  <div class="form-box">
+    <div class="logo">SC</div>
+    <h1>Únete a la comunidad</h1>
+    <p class="subtitle">Crea tu cuenta y comienza a cocinar</p>
+
+    <form (ngSubmit)="registrar()">
+      <div class="input-group">
+        <input [(ngModel)]="usuario.nombre_usuario" name="nombre_usuario" placeholder="Nombre de usuario" required />
+      </div>
+
+      <div class="input-group">
+        <input [(ngModel)]="usuario.edad" name="edad" type="number" placeholder="Edad" />
+      </div>
+
+      <div class="input-group">
+        <input [(ngModel)]="usuario.descripcion" name="descripcion" placeholder="Descripción" />
+      </div>
+
+      <div class="input-group">
+        <input [(ngModel)]="usuario.contacto" name="contacto" placeholder="Contacto" />
+      </div>
+
+      <div class="input-group">
+        <input [(ngModel)]="usuario.mail" name="mail" type="email" placeholder="Correo Electrónico" required />
+      </div>
+
+      <div class="input-group">
+        <input [(ngModel)]="usuario.password" name="password" type="password" placeholder="password" required />
+      </div>
+
+      <div class="input-group">
+  <input [(ngModel)]="usuario.foto_perfil" name="foto_perfil" placeholder="URL de Foto de Perfil (opcional)" />
+  <small class="input-hint">Puedes dejar esto en blanco por ahora</small>
+</div>
+
+
+      <button type="submit" class="submit-button">Crear Cuenta</button>
+    </form>
+
+    <p class="mensaje">{{ mensaje }}</p>
+
+    <div class="footer-text">
+      ¿Ya tienes cuenta? <a href="/login">Inicia sesión</a>
+    </div>
+  </div>
+</div>

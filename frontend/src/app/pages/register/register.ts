@@ -14,7 +14,7 @@ usuario = {
     descripcion: '',
     contacto: '',
     mail: '',
-    contrasena: '',
+    password: '',
     foto_perfil: ''
   };
 

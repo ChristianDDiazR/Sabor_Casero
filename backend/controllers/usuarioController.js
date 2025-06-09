@@ -17,7 +17,7 @@ exports.registrar = (req, res) => {
             contacto,
             mail,
             password: hash,
-            foto_perfil
+            foto_perfil: foto_perfil || null
         }, (err, resultado) => {
             if (err) {
                 if (err.code === 'ER_DUP_ENTRY') {
