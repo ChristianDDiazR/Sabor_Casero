@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-recipe-list',
   standalone: false,
   templateUrl: './recipe-list.html',
-  styleUrl: './recipe-list.css'
+  styleUrls: ['./recipe-list.css']
 })
 export class RecipeList implements OnInit {
   recipes: any[] = [];
