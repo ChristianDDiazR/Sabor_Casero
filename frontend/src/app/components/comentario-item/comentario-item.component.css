@@ -2,10 +2,11 @@
 .comentario {
   margin-bottom: 1.5rem;
   padding: 1rem;
-  border-left: 3px solid #4CAF50;
-  background-color: #fff;
+  border-left: 3px solid #7B5153;
+  background-color: #E2D0C2;
   border-radius: 0 8px 8px 0;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .comentario-header {
@@ -32,8 +33,8 @@
 }
 
 .acciones button {
-  background: none;
-  color: #B37670;
+  background: #7B5153;
+  color: #E2D0C2;
   padding: 5px 10px;
   font-size: 0.9rem;
   margin-right: 10px;
@@ -41,7 +42,7 @@
 }
 
 .acciones button:hover {
-  background-color: rgba(76, 175, 80, 0.1);
+  background-color: rgba(177, 117, 111, 1)
 }
 
 .acciones-edicion {

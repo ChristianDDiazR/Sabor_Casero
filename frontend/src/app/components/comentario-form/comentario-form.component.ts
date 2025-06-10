@@ -19,15 +19,14 @@ export class ComentarioFormComponent {
   enviando = false;
 
   constructor(private comentarioService: ComentarioService) {}
-
   publicarComentario(): void {
     if (this.comentarioControl.invalid || this.enviando) return;
 
     this.enviando = true;
 
     const nuevoComentario: NuevoComentario = {
-      id_usuarioComentario: 1, // Reemplazar con ID de usuario real
-      id_recetaComentario: this.idReceta,
+      id_usuarioComentario: 1, // Reemplazar con ID de usuario real this.idUsuario,
+      id_recetaComentario: 1,//this.idReceta,
       Comentario: this.comentarioControl.value!,
       id_comentarioPadre: this.idComentarioPadre || null
     };

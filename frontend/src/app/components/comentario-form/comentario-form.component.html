@@ -2,7 +2,6 @@
   <textarea
     [formControl]="comentarioControl"
     placeholder="Escribe tu comentario..."></textarea>
-
   <div *ngIf="comentarioControl.invalid && comentarioControl.touched" class="error">
     El comentario debe tener al menos 3 caracteres
   </div>

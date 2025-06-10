@@ -1,14 +1,18 @@
 var express = require('express');
+const cors = require('cors');
 const mc = require('./config/db');
 const comentarioRoutes = require('./routes/comentarioRoutes')
-
-
 var app = express();
+
 //conectar bdd
 mc.connect();
-app.use(express.json());
 
-
+const corsOptions = {
+    origin: 'http://localhost:4200',
+    optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
+app.use(express.json());//middleware para usar json
 //rutas
 app.use('', comentarioRoutes); 
 
