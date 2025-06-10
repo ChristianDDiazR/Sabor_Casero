@@ -24,8 +24,8 @@ db.connect(err => {
   }
   console.log('Conexión exitosa a la base de datos MySQL');
 });
-
-// Ruta de prueba
+//RECETAS
+// Ruta listar recetas
 app.get('/listar/recetas', (req, res) => {
   const query = `
     SELECT r.*, u.nombre_usuario, c.nombre_categoria 
@@ -37,6 +37,46 @@ app.get('/listar/recetas', (req, res) => {
     if (err) {
       console.error('Error al obtener recetas:', err);
       res.status(500).json({ error: 'Error al obtener recetas' });
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+// Ruta bucar recetas por nombre y/o filtro de categoría
+app.get('/buscar/recetas', (req, res) => {
+  const { q, categoria, mundo, momento, dia, tipo } = req.query;
+
+  let query = `
+    SELECT r.*, u.nombre_usuario, c.nombre_categoria 
+    FROM RECETA r
+    JOIN USUARIO u ON r.id_usuarioReceta = u.id_usuario
+    JOIN CATEGORIA c ON r.id_categoria = c.id_categoria
+    WHERE 1 = 1
+  `;
+
+  const params = [];
+
+  if (q) {
+    query += ` AND r.descripcion LIKE ?`;
+    params.push(`%${q}%`);
+  }
+
+  if (categoria) {
+    query += ` AND c.nombre_categoria = ?`;
+    params.push(categoria);
+  }
+
+  // Agrega filtros adicionales si los tienes en la BDD:
+  // if (mundo) {...}
+  // if (momento) {...}
+  // if (dia) {...}
+  // if (tipo) {...}
+
+  db.query(query, params, (err, results) => {
+    if (err) {
+      console.error('Error al buscar recetas:', err);
+      res.status(500).json({ error: 'Error al buscar recetas' });
     } else {
       res.json(results);
     }
