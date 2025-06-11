@@ -3,7 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing-module';
+import { RecipesModule } from './recipes/recipes-module';
 import { App } from './app';
+import { HttpClient, } from '@angular/common/http';
 
 import { ComentarioListComponent } from './components/comentario-list/comentario-list.component';
 import { ComentarioItemComponent } from './components/comentario-item/comentario-item.component';
@@ -23,7 +25,9 @@ import { ComentarioFormComponent } from './components/comentario-form/comentario
     HttpClientModule
   ],
   exports:[
-    ComentarioListComponent
+    ComentarioListComponent,
+    RecipesModule,
+    HttpClientModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners()

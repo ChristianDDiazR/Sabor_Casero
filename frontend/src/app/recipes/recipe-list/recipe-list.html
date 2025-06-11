@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <h2>🍽 Recetas Disponibles</h2>
+
+  <div *ngIf="recipes.length > 0; else noData" class="grid">
+    <div class="card" *ngFor="let receta of recipes">
+      <h3>{{ receta.nombre_receta }}</h3>
+      <p><strong>Categoría:</strong> {{ receta.nombre_categoria }}</p>
+      <p><strong>Autor:</strong> {{ receta.nombre_usuario }}</p>
+      <p><strong>Descripción:</strong> {{ receta.Descripcion }}</p>
+      <button>Ver Detalles</button>
+    </div>
+  </div>
+
+  <ng-template #noData>
+    <p class="no-data">No hay recetas disponibles.</p>
+  </ng-template>
+</div>
