@@ -8,7 +8,7 @@ import { Comentario, NuevoComentario } from '../models/comentario.model';
 })
 
 export class ComentarioService {
-  private apiUrl = 'http://localhost:2000';
+  private apiUrl = 'http://localhost:3000';
   constructor(private http: HttpClient) { }
 
   getComentariosPorReceta(idReceta: number): Observable<Comentario[]> {
@@ -29,6 +29,7 @@ export class ComentarioService {
   borrarComentario(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/borrarComentario/${id}`);
   }
+
 
   // Organiza comentarios en estructura jerárquica (padres e hijos)
   private organizarComentarios(comentarios: Comentario[]): Comentario[] {

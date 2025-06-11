@@ -17,7 +17,19 @@ const Comentario = {
         mc.query("SELECT * FROM COMENTARIO", callback);
     },
     obtenerComentariosPorReceta: function(id_receta, callback) {
-        mc.query("SELECT * FROM COMENTARIO WHERE id_recetaComentario = ?", id_receta, callback);
+       const sql = `
+        SELECT 
+            c.id_comentario,
+            c.id_usuarioComentario,
+            c.id_recetaComentario,
+            c.Comentario,
+            c.id_comentarioPadre,
+            c.Fecha_publicacion,
+            u.nombre_usuario AS nombreUsuario
+        FROM comentario c
+        JOIN usuario u ON c.id_usuarioComentario = u.id_usuario
+        WHERE c.id_recetaComentario = ?`;
+       mc.query(sql, id_receta, callback);
     }
 };
 

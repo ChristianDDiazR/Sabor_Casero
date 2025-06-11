@@ -47,6 +47,7 @@ const deleteComentario = async (req, res) => {
     }
 };
 
+
 const getComentarios = async (req, res) => {
     try {
         const comentarios = await obtenerTodosLosComentarios();

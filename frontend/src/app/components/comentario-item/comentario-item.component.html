@@ -1,6 +1,6 @@
 <div class="comentario">
   <div class="comentario-header">
-    <strong>{{ comentario.usuario?.nombre || 'Usuario' }}</strong>
+    <strong>{{ comentario.nombreUsuario }}</strong>
   </div>
 
   <div *ngIf="!editando; else edicionTemplate">
