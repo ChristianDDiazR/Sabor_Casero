@@ -30,6 +30,7 @@ export class ComentarioService {
     return this.http.delete(`${this.apiUrl}/borrarComentario/${id}`);
   }
 
+
   // Organiza comentarios en estructura jerárquica (padres e hijos)
   private organizarComentarios(comentarios: Comentario[]): Comentario[] {
     const comentariosMap = new Map<number, Comentario>();
