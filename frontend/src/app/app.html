@@ -1,63 +1,6 @@
-<nav class="navbar">
-  <div class="navbar-left">
-    <a href="#">INICIO</a>
-    <a href="#">CATEGORÍAS</a>
-  </div>
 
-  <div class="navbar-center">
-    <h1>SABOR CASERO</h1>
-  </div>
-
-  <div class="navbar-right">
-    <button class="icon-btn"><i class="fa fa-cog"></i></button>
-    <button class="icon-btn"><i class="fa fa-user-circle"></i></button>
-  </div>
-</nav>
-<section class="busqueda-recetas">
-  <h2>ENCUENTRA LAS RECETAS DE COCINA<br>PARA TUS COMIDAS FAVORITAS</h2>
-  <p>Ingresa palabras clave para encontrar tu receta idea.</p>
-
-  <div class="barra-busqueda">
-    <input type="text" placeholder="ej: Salmón con papas fritas" />
-    <button class="btn-buscar">Buscar</button>
-  </div>
-
-  <div class="filtros">
-    <select>
-      <option>Bases y Salsas</option>
-      <option>Salsas frías</option>
-      <option>Salsas calientes</option>
-    </select>
-    <select>
-      <option>Cocina del Mundo</option>
-      <option>Italiana</option>
-      <option>Mexicana</option>
-      <option>China</option>
-    </select>
-    <select>
-      <option>Momento del Día</option>
-      <option>Desayuno</option>
-      <option>Almuerzo</option>
-      <option>Cena</option>
-    </select>
-    <select>
-      <option>Días Especiales</option>
-      <option>Navidad</option>
-      <option>San Valentín</option>
-      <option>Cumpleaños</option>
-    </select>
-    <select>
-      <option>Tipos de Plato</option>
-      <option>Entrada</option>
-      <option>Plato principal</option>
-      <option>Postre</option>
-    </select>
-    <button class="btn-filtrar">Filtrar</button>
-  </div>
-</section>
-
+<router-outlet></router-outlet>
 <app-comentario-list
   [idReceta]="1"
   [usuarioActualId]="1">
 </app-comentario-list>
-<router-outlet></router-outlet>

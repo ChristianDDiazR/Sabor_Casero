@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { ComentarioService } from '../../../services/comentario.service';
+import { ComentarioService } from '../services/comentario.service';
 import { NuevoComentario } from '../models/comentario.model';
 
 @Component({

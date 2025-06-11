@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
-import { Comentario, NuevoComentario } from '../modules/comentario/models/comentario.model';
+import { Comentario, NuevoComentario } from '../models/comentario.model';
 
 @Injectable({
   providedIn: 'root'

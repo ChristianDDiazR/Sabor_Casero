@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Auth } from '../../services/auth';
+import { Auth } from '../../../comentario/services/auth';
 
 @Component({
   selector: 'app-register',
