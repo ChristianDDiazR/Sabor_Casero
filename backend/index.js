@@ -1,38 +1,33 @@
-var express = require('express');
+const express = require('express');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const mc = require('./config/db');
-const comentarioRoutes = require('./routes/comentarioRoutes')
-var app = express();
 
-//conectar bdd
+const comentarioRoutes = require('./routes/comentarioRoutes');
+const usuarioRoutes = require('./routes/usuarioRoutes');
+
+const app = express();
+
+// Conectar a la base de datos
 mc.connect();
 
+// Configuración de CORS
 const corsOptions = {
     origin: 'http://localhost:4200',
     optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
-app.use(express.json());//middleware para usar json
-//rutas
-app.use('', comentarioRoutes); 
 
-app.listen(2000, ()=>{
-    console.log('Servidor expres corriendo en el puerto 2000');
-});
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const app = express();
-
-// Middleware
-app.use(cors());
+// Middlewares
 app.use(bodyParser.json());
+app.use(express.json());
 
 // Rutas
-const usuarioRoutes = require('./routes/usuarioRoutes');
+app.use('', comentarioRoutes);
 app.use('/api/usuarios', usuarioRoutes);
 
 // Iniciar servidor
-app.listen(3000, () => {
-    console.log('Servidor backend corriendo en http://localhost:3000');
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor backend corriendo en http://localhost:${PORT}`);
 });
