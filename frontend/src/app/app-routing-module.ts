@@ -5,7 +5,8 @@ import { Register } from './modules/login-register/pages/register/register';
 
 const routes: Routes = [
   { path: '', redirectTo: 'recipes', pathMatch: 'full' }, // redirecciona al inicio
-  { path: 'login', component: Login }
+  { path: 'login', component: Login },
+  { path: 'register', component: Register },
 ];
 
 @NgModule({
