@@ -33,10 +33,30 @@ export class ComentarioItemComponent {
     this.editando = false;
   }
 
+  // guardarEdicion(): void {
+  //   this.editando = false;
+  //   this.comentarioEditado.emit();
+  // }
   guardarEdicion(): void {
-    this.editando = false;
-    this.comentarioEditado.emit();
-  }
+  if (!this.textoEditado.trim()) return; // Validación básica
+
+  this.editando = false;
+
+  // Llamar al servicio para actualizar el comentario
+  this.comentarioService.editarComentario(this.comentario.id_comentario, {
+    Comentario: this.textoEditado
+  }).subscribe({
+    next: () => {
+      // Actualizar el valor local del comentario
+      this.comentario.Comentario = this.textoEditado;
+      this.comentarioEditado.emit(); // Notificar al padre
+    },
+    error: (err) => {
+      console.error('Error al guardar edición', err);
+      alert('No se pudo guardar el comentario');
+    }
+  });
+}
 
   toggleRespuesta(): void {
     this.respondiendo = !this.respondiendo;
