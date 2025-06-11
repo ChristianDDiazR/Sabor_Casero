@@ -8,4 +8,3 @@ const mc = mysql.createConnection({
 });
 
 module.exports = mc;
-

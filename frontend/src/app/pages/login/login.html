@@ -1,0 +1,33 @@
+<div class="login-container">
+  <div class="card">
+    <div class="logo">SC</div>
+    <h2>Bienvenido de vuelta</h2>
+    <p class="subtitle">Inicia sesión en tu cuenta</p>
+
+    <form (ngSubmit)="login()" class="login-form">
+      <div class="input-group">
+        <span class="icon">📧</span>
+        <input [(ngModel)]="credenciales.mail" name="mail" type="email" placeholder="tu@email.com" required />
+      </div>
+
+      <div class="input-group">
+        <span class="icon">🔒</span>
+        <input [(ngModel)]="credenciales.password" name="password" type="password" placeholder="Tu contraseña" required />
+      </div>
+
+      <a href="#" class="forgot">¿Olvidaste tu contraseña?</a>
+
+      <button type="submit" class="primary-btn">Iniciar Sesión</button>
+
+      <div class="divider">o</div>
+
+      <button type="button" class="google-btn">
+        <span class="icon">G</span> Continuar con Google
+      </button>
+    </form>
+
+    <p class="register">¿No tienes cuenta? <a href="/register">Regístrate gratis</a></p>
+
+    <p class="mensaje">{{ mensaje }}</p>
+  </div>
+</div>
