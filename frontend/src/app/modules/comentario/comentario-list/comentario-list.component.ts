@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { ComentarioService } from '../../services/comentario.service';
-import { Comentario } from '../../models/comentario.model';
+import { ComentarioService } from '../../../services/comentario.service';
+import { Comentario } from '../models/comentario.model';
 
 @Component({
   selector: 'app-comentario-list',

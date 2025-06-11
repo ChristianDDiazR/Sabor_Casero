@@ -1,6 +1,6 @@
 import { Component,Input, Output, EventEmitter } from '@angular/core';
-import { Comentario } from '../../models/comentario.model';
-import { ComentarioService } from '../../services/comentario.service';
+import { Comentario } from '../models/comentario.model';
+import { ComentarioService } from '../../../services/comentario.service';
 
 @Component({
   selector: 'app-comentario-item',
