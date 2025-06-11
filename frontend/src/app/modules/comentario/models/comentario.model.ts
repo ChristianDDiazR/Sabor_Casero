@@ -5,7 +5,7 @@ export interface Comentario {
   Comentario: string;
   Fecha_publicacion: Date;
   id_comentarioPadre: number | null;
-  usuario?: { nombre: string }; // Campo adicional para el nombre del usuario
+  nombreUsuario: string; // Campo adicional para el nombre del usuario
   respuestas?: Comentario[];   // Para comentarios anidados
 }
 

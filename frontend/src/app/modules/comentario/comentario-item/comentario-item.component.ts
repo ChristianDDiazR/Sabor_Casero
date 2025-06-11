@@ -1,6 +1,7 @@
 import { Component,Input, Output, EventEmitter } from '@angular/core';
 import { Comentario } from '../models/comentario.model';
 import { ComentarioService } from '../services/comentario.service';
+import { Auth } from '../services/auth';
 
 @Component({
   selector: 'app-comentario-item',
@@ -21,7 +22,7 @@ export class ComentarioItemComponent {
   respondiendo = false;
   textoRespuesta = '';
 
-  constructor(private comentarioService: ComentarioService) {}
+  constructor(private comentarioService: ComentarioService, private authService: Auth) {}
 
   iniciarEdicion(): void {
     this.textoEditado = this.comentario.Comentario;
@@ -32,32 +33,10 @@ export class ComentarioItemComponent {
     this.editando = false;
   }
 
-  // guardarEdicion(): void {
-  //   this.editando = false;
-  //   this.comentarioEditado.emit();
-  // }
   guardarEdicion(): void {
-  if (this.textoEditado.trim() === '') {
-    alert('El comentario no puede estar vacío');
-    return;
+    this.editando = false;
+    this.comentarioEditado.emit();
   }
-
-  // Llamar al servicio para editar el comentario
-  this.comentarioService.editarComentario(this.comentario.id_comentario, {
-    Comentario: this.textoEditado
-  }).subscribe(
-    res => {
-      console.log('Comentario actualizado:', res);
-      this.comentario.Comentario = this.textoEditado; // Actualiza el valor local
-      this.editando = false;
-      this.comentarioEditado.emit(); // Notifica al padre que hubo cambios
-    },
-    err => {
-      console.error('Error al actualizar el comentario', err);
-      alert('Hubo un error al actualizar el comentario');
-    }
-  );
-}
 
   toggleRespuesta(): void {
     this.respondiendo = !this.respondiendo;
