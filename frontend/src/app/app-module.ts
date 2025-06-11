@@ -3,16 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing-module';
-import { RecipesModule } from './recipes/recipes-module';
+import { RecipesModule } from './modules/recipes/recipes-module';
 import { App } from './app';
 import { HttpClient, } from '@angular/common/http';
-import { Login } from './pages/login/login';
-import { Register } from './pages/register/register';
+import { Login } from './modules/login-register/pages/login/login';
+import { Register } from './modules/login-register/pages/register/register';
 
 
-import { ComentarioListComponent } from './components/comentario-list/comentario-list.component';
-import { ComentarioItemComponent } from './components/comentario-item/comentario-item.component';
-import { ComentarioFormComponent } from './components/comentario-form/comentario-form.component';
+import { ComentarioListComponent } from './modules/comentario/comentario-list/comentario-list.component';
+import { ComentarioItemComponent } from './modules/comentario/comentario-item/comentario-item.component';
+import { ComentarioFormComponent } from './modules/comentario/comentario-form/comentario-form.component';
 @NgModule({
   declarations: [
     App,

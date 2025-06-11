@@ -5,6 +5,7 @@ const mc = require('./config/db');
 
 const comentarioRoutes = require('./routes/comentarioRoutes');
 const usuarioRoutes = require('./routes/usuarioRoutes');
+const recipeRoutes = require('./routes/recipeRoutes');
 
 const app = express();
 
@@ -22,9 +23,12 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(express.json());
 
-// Rutas
+// Rutas Comentarios
 app.use('', comentarioRoutes);
+//Rutas Usuarios
 app.use('/api/usuarios', usuarioRoutes);
+// Rutas Recetas
+app.use('/listar/recetas', recipeRoutes);
 
 // Iniciar servidor
 const PORT = 3000;
