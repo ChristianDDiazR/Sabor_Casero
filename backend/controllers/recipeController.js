@@ -1,12 +1,20 @@
 const recipeService = require('../services/recipeService');
 
 exports.getRecipes = (req, res) => {
-  recetaService.obtenerRecipes((err, results) => {
+  recipeService.obtenerRecipes((err, results) => {
     if (err) {
       console.error('Error al obtener recetas:', err);
       res.status(500).json({ error: 'Error al obtener recetas' });
     } else {
-      res.json(results);
+      // Convertir imágenes en base64
+      const recipesWithImages = results.map(recipe => {
+        if (recipe.imagen) {
+          recipe.imagen = Buffer.from(recipe.imagen).toString('base64');
+        }
+        return recipe;
+      });
+
+      res.json(recipesWithImages);
     }
   });
 };

@@ -1,6 +1,6 @@
 const db = require('../config/db');
 
-const obtenerRecetas = (callback) => {
+const obtenerRecipes = (callback) => {
   const query = `
     SELECT r.*, u.nombre_usuario, c.nombre_categoria 
     FROM RECETA r
@@ -11,5 +11,5 @@ const obtenerRecetas = (callback) => {
 };
 
 module.exports = {
-  obtenerRecetas,
+  obtenerRecipes,
 };

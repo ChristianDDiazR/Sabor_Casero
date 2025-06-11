@@ -60,10 +60,11 @@
 
   <div *ngIf="recipes.length > 0; else noData" class="grid">
     <div class="card" *ngFor="let receta of recipes">
+      <img *ngIf="receta.imagen" [src]="'data:image/jpeg;base64,' + receta.imagen" class="card-img-top" />
       <h3>{{ receta.nombre_receta }}</h3>
       <p><strong>Categoría:</strong> {{ receta.nombre_categoria }}</p>
       <p><strong>Autor:</strong> {{ receta.nombre_usuario }}</p>
-      <p><strong>Descripción:</strong> {{ receta.Descripcion }}</p>
+      <p><strong>Descripción:</strong> {{ receta.descripcion }}</p>
       <button>Ver Detalles</button>
     </div>
   </div>
