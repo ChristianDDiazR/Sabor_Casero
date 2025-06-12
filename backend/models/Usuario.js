@@ -20,7 +20,14 @@ const Usuario = {
         const query = `SELECT * FROM USUARIO WHERE mail = ?`;
         
         mc.query(query, [mail], callback);
-    }
+    },
+
+    buscarPorId: (id, callback) => {
+    const query = `SELECT * FROM USUARIO WHERE id_usuario = ?`;
+    mc.query(query, [id], callback);
+}
+
+
 };
 
 module.exports = Usuario;
