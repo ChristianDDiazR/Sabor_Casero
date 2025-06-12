@@ -1,1 +1,11 @@
-<p>recipe-detail works!</p>
+<div *ngIf="receta" class="detalle-receta">
+  <h2>{{ receta.titulo }}</h2>
+  <img *ngIf="receta.imagen" [src]="'data:image/jpeg;base64,' + receta.imagen" alt="Imagen de la receta">
+  <p><strong>Descripción:</strong> {{ receta.descripcion }}</p>
+  <p><strong>Autor:</strong> {{ receta.nombre_usuario }}</p>
+  <p><strong>Categoría:</strong> {{ receta.nombre_categoria }}</p>
+</div>
+
+<div *ngIf="!receta">
+  <p>Cargando detalles de la receta...</p>
+</div>

@@ -65,7 +65,7 @@
       <p><strong>Categoría:</strong> {{ receta.nombre_categoria }}</p>
       <p><strong>Autor:</strong> {{ receta.nombre_usuario }}</p>
       <p><strong>Descripción:</strong> {{ receta.descripcion }}</p>
-      <button>Ver Detalles</button>
+      <button (click)="verDetalle(receta.id_receta)">Ver Detalles</button>
     </div>
   </div>
 

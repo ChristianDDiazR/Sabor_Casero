@@ -19,3 +19,23 @@ exports.getRecipes = (req, res) => {
   });
 };
 
+exports.getRecipeById = (req, res) => {
+  const id = req.params.id;
+  recipeService.obtenerRecipePorId(id, (err, result) => {
+    if (err) {
+      console.error('Error al obtener receta por ID:', err);
+      res.status(500).json({ error: 'Error al obtener receta' });
+    } else if (!result.length) {
+      res.status(404).json({ mensaje: 'Receta no encontrada' });
+    } else {
+      // Convertir imagen a base64 si existe
+      const receta = result[0];
+      if (receta.imagen) {
+        receta.imagen = Buffer.from(receta.imagen).toString('base64');
+      }
+      res.json(receta);
+    }
+  });
+};
+
+
