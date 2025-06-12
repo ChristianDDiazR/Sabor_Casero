@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+
 import { RecipeService } from '../recipes';
+import { Auth } from '../../comentario/services/auth'; // Asegúrate de que la ruta sea correcta
+
 
 @Component({
   selector: 'app-recipe-list',
@@ -15,11 +18,14 @@ export class RecipeList implements OnInit {
   selectedCategory: string = '';
   categories: any[] = [];
 
+
   constructor(
     private http: HttpClient,
     private router: Router,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private auth: Auth
   ) {}
+
 
   ngOnInit(): void {
     // Cargar todas las recetas al inicio
@@ -119,5 +125,12 @@ export class RecipeList implements OnInit {
   goToLogin() {
     this.router.navigate(['/login']);
   }
-
+  
+  irALoginOPerfil(): void {
+    if (this.auth.isLoggedIn()) {
+      this.router.navigate(['/perfil']); // Ajusta según tu ruta real
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
 }

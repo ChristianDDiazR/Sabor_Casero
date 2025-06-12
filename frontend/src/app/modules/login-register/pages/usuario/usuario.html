@@ -1,0 +1,49 @@
+<div class="perfil-container" *ngIf="usuario">
+  <div class="perfil-card">
+    <div class="perfil-header">
+      <h2 class="perfil-titulo">Mi Perfil</h2>
+      <div class="perfil-foto-wrapper">
+        <img
+          class="perfil-foto"
+          [src]="usuario.foto_perfil || 'assets/profile-icon-login-head-icon-vector.jpg'"
+          alt="Foto de perfil"
+        />
+      </div>
+    </div>
+    
+    <div class="perfil-info">
+      <div class="info-item">
+        <span class="info-label">Nombre de usuario:</span>
+        <span class="info-valor">{{ usuario.nombre_usuario }}</span>
+      </div>
+      
+      <div class="info-item" *ngIf="usuario.edad">
+        <span class="info-label">Edad:</span>
+        <span class="info-valor">{{ usuario.edad }} años</span>
+      </div>
+      
+      <div class="info-item" *ngIf="usuario.descripcion">
+        <span class="info-label">Descripción:</span>
+        <span class="info-valor">{{ usuario.descripcion }}</span>
+      </div>
+      
+      <div class="info-item" *ngIf="usuario.contacto">
+        <span class="info-label">Contacto:</span>
+        <span class="info-valor">{{ usuario.contacto }}</span>
+      </div>
+      
+      <div class="info-item">
+        <span class="info-label">Email:</span>
+        <span class="info-valor">{{ usuario.mail }}</span>
+      </div>
+    </div>
+    
+    <div class="perfil-acciones">
+      <button class="btn-primario">Editar Perfil</button>
+    </div>
+
+    <div class="perfil-acciones">
+      <button class="btn-primario" (click)="cerrarSesion()">Cerrar sesión</button>
+    </div>
+  </div>
+</div>
