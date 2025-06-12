@@ -13,6 +13,7 @@ import { Register } from './modules/login-register/pages/register/register';
 import { ComentarioListComponent } from './modules/comentario/comentario-list/comentario-list.component';
 import { ComentarioItemComponent } from './modules/comentario/comentario-item/comentario-item.component';
 import { ComentarioFormComponent } from './modules/comentario/comentario-form/comentario-form.component';
+import { Usuario } from './modules/login-register/pages/usuario/usuario';
 @NgModule({
   declarations: [
     App,
@@ -20,7 +21,8 @@ import { ComentarioFormComponent } from './modules/comentario/comentario-form/co
     ComentarioItemComponent,
     ComentarioListComponent,
     Login,
-    Register
+    Register,
+    Usuario
   ],
   imports: [
     BrowserModule,

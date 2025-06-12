@@ -1,0 +1,145 @@
+.perfil-container {
+  min-height: 100vh;
+  background-color: #f5f2e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-family: 'Georgia', serif;
+}
+
+.perfil-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(139, 30, 63, 0.1);
+  max-width: 500px;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #e8e0d0;
+}
+
+.perfil-header {
+  background-color: #8B1E3F;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.perfil-titulo {
+  font-size: 1.75rem;
+  margin: 0 0 1.5rem 0;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+}
+
+.perfil-foto-wrapper {
+  display: inline-block;
+  padding: 4px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.perfil-foto {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #f2d9a8;
+}
+
+.perfil-info {
+  padding: 2rem;
+  background-color: white;
+}
+
+.info-item {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #f2d9a8;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.info-label {
+  font-weight: bold;
+  color: #8B1E3F;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-valor {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.perfil-acciones {
+  padding: 1.5rem 2rem;
+  background-color: #f9f5ed;
+  border-top: 1px solid #f2d9a8;
+  text-align: center;
+}
+
+.btn-primario {
+  background-color: #8B1E3F;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Georgia', serif;
+  transition: background-color 0.3s;
+}
+
+.btn-primario:hover {
+  background-color: #6d1730;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .perfil-container {
+    padding: 1rem;
+  }
+  
+  .perfil-header {
+    padding: 1.5rem;
+  }
+  
+  .perfil-foto {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .perfil-info {
+    padding: 1.5rem;
+  }
+  
+  .perfil-acciones {
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .perfil-titulo {
+    font-size: 1.5rem;
+  }
+  
+  .perfil-foto {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .info-item {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+}

@@ -57,11 +57,22 @@ exports.login = (req, res) => {
                 token,
                 usuario: {
                     id_usuario: usuario.id_usuario,
-                    nombre_usuario: usuario.nombre_usuario,
-                    mail: usuario.mail,
-                    foto_perfil: usuario.foto_perfil
+        nombre_usuario: usuario.nombre_usuario,
+        mail: usuario.mail,
+        foto_perfil: usuario.foto_perfil,
+        edad: usuario.edad,
+        descripcion: usuario.descripcion,
+        contacto: usuario.contacto
                 }
             });
         });
+    });
+};
+
+exports.perfilUsuario = (req, res) => {
+    // req.usuario viene del token JWT decodificado
+    res.json({
+        mensaje: 'Acceso autorizado',
+        usuario: req.usuario
     });
 };
