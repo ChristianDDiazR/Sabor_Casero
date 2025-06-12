@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Login } from './modules/login-register/pages/login/login';
-import { Register } from './modules/login-register/pages/register/register';
-import { Usuario } from './modules/login-register/pages/usuario/usuario';
+import { Login } from './modules/login/login';
+import { Register } from './modules/register/register';
+import { Usuario } from './modules/usuario/usuario';
 import { RecipeDetail } from './modules/recipes/recipe-detail/recipe-detail';
 
 const routes: Routes = [

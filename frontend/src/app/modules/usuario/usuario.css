@@ -1,0 +1,107 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom right, #f0f4f8, #e9eff5);
+  height: 100%;
+  background-color: #E3D1C3;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #E3D1C3;
+}
+
+.card {
+  background: #D7B09F;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.logo {
+  background: linear-gradient(to right, #7B5153, #B27570);
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #7E5456;
+}
+
+.subtitle {
+  color: #B27570;
+  margin-bottom: 1.5rem;
+}
+
+.perfil-foto-wrapper {
+  margin: 1rem auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.perfil-foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.perfil-info {
+  text-align: left;
+  margin-top: 1.5rem;
+}
+
+.info-item {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0c6b7;
+}
+
+.info-label {
+  display: block;
+  font-weight: bold;
+  color: #7B5153;
+  font-size: 0.85rem;
+}
+
+.info-valor {
+  color: #4a1c2c;
+  font-size: 1rem;
+}
+
+.perfil-acciones {
+  margin-top: 1rem;
+}
+
+.primary-btn {
+  background: #7B5153;
+  color: #E2D0C2;
+  border: none;
+  padding: 0.75rem;
+  width: 100%;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+}

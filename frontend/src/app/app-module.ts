@@ -6,14 +6,14 @@ import { AppRoutingModule } from './app-routing-module';
 import { RecipesModule } from './modules/recipes/recipes-module';
 import { App } from './app';
 import { HttpClient, } from '@angular/common/http';
-import { Login } from './modules/login-register/pages/login/login';
-import { Register } from './modules/login-register/pages/register/register';
+import { Login } from './modules/login/login';
+import { Register } from './modules/register/register';
 
 
 import { ComentarioListComponent } from './modules/comentario/comentario-list/comentario-list.component';
 import { ComentarioItemComponent } from './modules/comentario/comentario-item/comentario-item.component';
 import { ComentarioFormComponent } from './modules/comentario/comentario-form/comentario-form.component';
-import { Usuario } from './modules/login-register/pages/usuario/usuario';
+import { Usuario } from './modules/usuario/usuario';
 import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
