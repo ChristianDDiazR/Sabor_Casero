@@ -38,4 +38,30 @@ exports.getRecipeById = (req, res) => {
   });
 };
 
+exports.buscarRecipe = (req, res) => {
+  const texto = req.query.search?.trim() || '';
+
+  if (!texto) {
+    return res.status(400).json({ error: 'Debe proporcionar un texto de búsqueda' });
+  }
+
+  console.log("Texto recibido:", texto);
+
+  recipeService.buscarRecipesPorNombre(texto, (err, results) => {
+    if (err) {
+      console.error('Error al buscar recetas:', err);
+      res.status(500).json({ error: 'Error al buscar recetas' });
+    } else {
+      const recipesWithImages = results.map(recipe => {
+        if (recipe.imagen) {
+          recipe.imagen = Buffer.from(recipe.imagen).toString('base64');
+        }
+        return recipe;
+      });
+
+      res.json(recipesWithImages);
+    }
+  });
+};
+
 
