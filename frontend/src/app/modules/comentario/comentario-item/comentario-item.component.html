@@ -9,7 +9,11 @@
       <button (click)="toggleRespuesta()">Responder</button>
       <!-- <ng-container *ngIf="usuarioActualId === comentario.id_usuarioComentario"> -->
         <button  *ngIf="usuarioActualId === comentario.id_usuarioComentario" (click)="iniciarEdicion()">Editar</button>
-        <button  *ngIf="usuarioActualId === comentario.id_usuarioComentario" (click)="comentarioEliminado.emit()">Eliminar</button>
+        <button
+          *ngIf="usuarioActualId === comentario.id_usuarioComentario"
+          (click)="eliminarComentario()">
+          Eliminar
+        </button>
       <!-- </ng-container> -->
     </div>
   </div>

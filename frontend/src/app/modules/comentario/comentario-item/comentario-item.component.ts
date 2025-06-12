@@ -67,7 +67,7 @@ export class ComentarioItemComponent {
 
     this.comentarioService.borrarComentario(this.comentario.id_comentario).subscribe({
       next: () => {
-        this.comentarioEliminado.emit(); // Notifica al padre para actualizar
+        this.comentarioEliminado.emit(); // Notifica al padre para recargar comentarios
       },
       error: (err) => {
         console.error('Error al eliminar comentario', err);

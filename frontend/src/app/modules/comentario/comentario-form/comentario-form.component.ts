@@ -42,7 +42,7 @@ export class ComentarioFormComponent {
 
     const nuevoComentario: NuevoComentario = {
       id_usuarioComentario: usuario.id_usuario,
-      id_recetaComentario: 1,//this.idReceta,
+      id_recetaComentario: this.idReceta,
       Comentario: this.comentarioControl.value!,
       id_comentarioPadre: this.idComentarioPadre || null
     };

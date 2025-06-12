@@ -15,19 +15,20 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  background-color: #E3D1C3;
 }
 
 .back-link {
   position: absolute;
   top: 20px;
   left: 30px;
-  color: #4b5563;
+  color: #581814;
   text-decoration: none;
   font-size: 14px;
 }
 
 .form-box {
-  background-color: white;
+  background: #D7B09F;
   padding: 40px;
   width: 100%;
   max-width: 400px;
@@ -39,7 +40,7 @@ body {
 .logo {
   width: 48px;
   height: 48px;
-  background: linear-gradient(to right, #38bdf8, #10b981);
+  background: linear-gradient(to right, #7B5153, #B27570);
   color: white;
   font-weight: bold;
   font-size: 18px;
@@ -54,10 +55,11 @@ h1 {
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 5px;
+  color: #7B5153;
 }
 
 .subtitle {
-  color: #6b7280;
+  color: #B27570;
   font-size: 14px;
   margin-bottom: 30px;
 }
@@ -69,7 +71,8 @@ h1 {
 input {
   width: 100%;
   padding: 12px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #7B5153;
+  background: #E3D1C3;
   border-radius: 10px;
   font-size: 14px;
   outline: none;
@@ -83,8 +86,8 @@ input:focus {
 .submit-button {
   width: 100%;
   padding: 12px;
-  background-color: #111827;
-  color: white;
+  background-color: #7B5153;
+  color: #E2D0C2;
   border: none;
   border-radius: 10px;
   font-size: 16px;
@@ -94,28 +97,28 @@ input:focus {
 }
 
 .submit-button:hover {
-  background-color: #1f2937;
+  background-color: #581814;
 }
 
 .mensaje {
   margin-top: 15px;
-  color: #ef4444;
+  color: #581814;
   font-size: 14px;
 }
 
 .footer-text {
   font-size: 14px;
-  color: #6b7280;
+  color: #7B5153;
   margin-top: 25px;
 }
 
 .footer-text a {
-  color: #3b82f6;
+  color: #581814;
   text-decoration: none;
 }
 
 .input-hint {
   font-size: 12px;
-  color: #777;
+  color: #7B5153;
   margin-top: 4px;
 }
