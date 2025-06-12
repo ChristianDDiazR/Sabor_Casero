@@ -4,25 +4,23 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: #A86A65; 
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 10;
 }
 
-/* Secciones */
 .navbar-left a,
 .navbar-right .icon-btn {
   margin: 0 0.8rem;
-  color: #8B0000;
+  color: #D8A694; 
   text-decoration: none;
   font-weight: bold;
   text-transform: uppercase;
   font-size: 0.95rem;
 }
 
-/* Iconos */
 .icon-btn {
   background: none;
   border: none;
@@ -30,31 +28,30 @@
   font-size: 1.4rem;
 }
 
-/* Centro con el logo */
 .navbar-center h1 {
   font-size: 1.8rem;
-  color: #8B0000;
+  color: #D8A694; 
   letter-spacing: 2px;
   margin: 0;
 }
 
-/* Barra de busqueda */
+/* Sección de búsqueda */
 .busqueda-recetas {
-  background-color: #e7d3aa; /* color de fondo tipo crema */
+  background-color: #E0CBB9; 
   padding: 2rem;
   text-align: center;
 }
 
 .busqueda-recetas h2 {
   font-size: 1.5rem;
-  color: #800000;
+  color: #A86A65; 
   margin-bottom: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .busqueda-recetas p {
-  color: #333;
+  color: #754B4D; 
   font-size: 0.95rem;
   margin-bottom: 1.5rem;
 }
@@ -69,17 +66,17 @@
   width: 40%;
   padding: 0.6rem 1rem;
   font-size: 1rem;
-  border: 2px solid #800000;
+  border: 2px solid #A86A65; 
   border-right: none;
   border-radius: 5px 0 0 5px;
 }
 
 .btn-buscar {
-  background-color: #800000;
+  background-color: #A86A65; 
   color: white;
   padding: 0.6rem 1.5rem;
   font-size: 1rem;
-  border: 2px solid #800000;
+  border: 2px solid #A86A65;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
 }
@@ -95,12 +92,12 @@
 .filtros select {
   padding: 0.6rem;
   font-size: 0.95rem;
-  border: 1px solid #999;
+  border: 1px solid #AB8882; 
   border-radius: 5px;
 }
 
 .btn-filtrar {
-  background-color: #4c3db5;
+  background-color: #AB8882; 
   color: white;
   padding: 0.6rem 1.5rem;
   font-size: 1rem;
@@ -110,18 +107,10 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-}
-
-
-
-
-/* Fondo de toda la página */
-body {
-  margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f7f4ef;
+  background-color: #E0CBB9;
   color: #333;
+  margin: 0;
 }
 
 /* Contenedor principal */
@@ -136,7 +125,7 @@ body {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #8B0000;
+  color: #754B4D; 
   letter-spacing: 1px;
 }
 
@@ -147,9 +136,9 @@ body {
   gap: 2rem;
 }
 
-/* Tarjeta de las recetas*/
+/* Tarjeta de receta */
 .card {
-  background: white;
+  background: #FFF;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
@@ -161,12 +150,13 @@ body {
 }
 
 .card h3 {
-  color: #c0392b;
+  color: #D8A694; 
   margin-bottom: 0.5rem;
 }
 
 .card p {
   margin: 0.3rem 0;
+  color: #333;
 }
 
 .recipe-img {
@@ -177,11 +167,11 @@ body {
   display: block;
 }
 
-/* Botón */
+/* Botón dentro de tarjeta */
 .card button {
   margin-top: 1rem;
   padding: 0.6rem 1.2rem;
-  background-color: #8B0000;
+  background-color: #754B4D; 
   color: white;
   border: none;
   border-radius: 8px;
@@ -190,13 +180,18 @@ body {
 }
 
 .card button:hover {
-  background-color: #a52a2a;
+  background-color: #AB8882; 
 }
 
-/* Texto si no hay recetas */
+/* No hay datos */
 .no-data {
   text-align: center;
   font-style: italic;
   color: #666;
 }
 
+
+/* Estilo para la imagen */
+.header-image {
+  max-width: 20%; /* Ajusta el ancho máximo al contenedor padre */
+}
