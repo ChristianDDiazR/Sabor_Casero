@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ComentarioService } from '../services/comentario.service';
 import { NuevoComentario } from '../models/comentario.model';
+import { Auth } from '../services/auth';
 
 @Component({
   selector: 'app-comentario-form',
@@ -18,18 +19,34 @@ export class ComentarioFormComponent {
   comentarioControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
   enviando = false;
 
-  constructor(private comentarioService: ComentarioService) {}
+  constructor(private comentarioService: ComentarioService, private authService: Auth) {}
   publicarComentario(): void {
     if (this.comentarioControl.invalid || this.enviando) return;
 
+    const usuario = this.authService.getUsuarioLogueado();
+
+    if (!usuario) {
+      alert('Debes iniciar sesión para comentar.');
+      return;
+    }
+
     this.enviando = true;
 
+    // const nuevoComentario: NuevoComentario = {
+    //   id_usuarioComentario: 2, // Reemplazar con ID de usuario real this.idUsuario,
+    //   id_recetaComentario: 1,//this.idReceta,
+    //   Comentario: this.comentarioControl.value!,
+    //   id_comentarioPadre: this.idComentarioPadre || null
+    // };
+
+
     const nuevoComentario: NuevoComentario = {
-      id_usuarioComentario: 1, // Reemplazar con ID de usuario real this.idUsuario,
-      id_recetaComentario: 1,//this.idReceta,
+      id_usuarioComentario: usuario.id_usuario,
+      id_recetaComentario: this.idReceta,
       Comentario: this.comentarioControl.value!,
       id_comentarioPadre: this.idComentarioPadre || null
     };
+
 
     this.comentarioService.crearComentario(nuevoComentario).subscribe({
       next: () => {

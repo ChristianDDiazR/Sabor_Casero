@@ -4,6 +4,7 @@ body, html {
   font-family: 'Inter', sans-serif;
   background: linear-gradient(to bottom right, #f0f4f8, #e9eff5);
   height: 100%;
+  background-color: #E3D1C3;
 }
 
 .login-container {
@@ -11,10 +12,11 @@ body, html {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: #E3D1C3;
 }
 
 .card {
-  background: white;
+  background: #D7B09F;
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
@@ -24,7 +26,7 @@ body, html {
 }
 
 .logo {
-  background: linear-gradient(to right, #4f46e5, #22c55e);
+  background: linear-gradient(to right, #7B5153, #B27570);
   color: white;
   font-weight: bold;
   border-radius: 50%;
@@ -40,18 +42,19 @@ body, html {
 h2 {
   margin: 0;
   font-size: 1.5rem;
+  color: #7E5456;
 }
 
 .subtitle {
-  color: #6b7280;
+  color: #B27570;
   margin-bottom: 1.5rem;
 }
 
 .input-group {
   display: flex;
   align-items: center;
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
+  background: #E3D1C3;
+  border: 1px solid #B27570;
   border-radius: 8px;
   margin-bottom: 1rem;
   padding: 0.5rem;
@@ -73,13 +76,13 @@ h2 {
   text-align: right;
   margin-bottom: 1rem;
   font-size: 0.875rem;
-  color: #3b82f6;
-  text-decoration: none;
+  color: #7E5456;
+  text-decoration: solid;
 }
 
 .primary-btn {
-  background: #0f172a;
-  color: white;
+  background: #7B5153;
+  color: #E2D0C2;
   border: none;
   padding: 0.75rem;
   width: 100%;
@@ -91,12 +94,12 @@ h2 {
 
 .divider {
   margin: 1rem 0;
-  color: #9ca3af;
+  color: #7B5153;
 }
 
 .google-btn {
-  background: white;
-  border: 1px solid #d1d5db;
+  background: #B27570;
+  border: 1px solid #7B5153;
   padding: 0.75rem;
   width: 100%;
   border-radius: 8px;
@@ -115,12 +118,12 @@ h2 {
 
 .register {
   font-size: 0.875rem;
-  color: #6b7280;
+  color: #7B5153;
   margin-top: 1rem;
 }
 
 .register a {
-  color: #3b82f6;
+  color: #581814;
   text-decoration: none;
 }
 
