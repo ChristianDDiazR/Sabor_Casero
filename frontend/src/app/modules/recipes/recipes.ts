@@ -23,4 +23,8 @@ export class RecipeService {
     return this.http.get<any>(`${this.baseUrl}/recetas/${id}`);
   }
 
+  // Obtener categorías desde el backend
+  getCategorias(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/listar/recetas/categorias`);
+  }
 }

@@ -39,27 +39,36 @@ exports.getRecipeById = (req, res) => {
 };
 
 exports.buscarRecipe = (req, res) => {
-  const texto = req.query.search?.trim() || '';
+  const { search, category } = req.query;
 
-  if (!texto) {
-    return res.status(400).json({ error: 'Debe proporcionar un texto de búsqueda' });
+  // Si no hay ningún filtro, devolver todas las recetas
+  if (!search && !category) {
+    return recipeService.getAllRecipes((err, results) => {
+      if (err) {
+        console.error('Error al obtener recetas:', err);
+        return res.status(500).json({ error: 'Error al obtener recetas' });
+      }
+      return res.json(results);
+    });
   }
 
-  console.log("Texto recibido:", texto);
-
-  recipeService.buscarRecipesPorNombre(texto, (err, results) => {
+  // Si hay filtros, usar la función de buscar con filtros
+  recipeService.buscarRecipesPorFiltros({ search, category }, (err, results) => {
     if (err) {
       console.error('Error al buscar recetas:', err);
-      res.status(500).json({ error: 'Error al buscar recetas' });
-    } else {
-      const recipesWithImages = results.map(recipe => {
-        if (recipe.imagen) {
-          recipe.imagen = Buffer.from(recipe.imagen).toString('base64');
-        }
-        return recipe;
-      });
+      return res.status(500).json({ error: 'Error al buscar recetas' });
+    }
+    return res.json(results);
+  });
+};
 
-      res.json(recipesWithImages);
+exports.getCategorias = (req, res) => {
+  recipeService.obtenerCategorias((err, results) => {
+    if (err) {
+      console.error('Error al obtener categorías:', err);
+      res.status(500).json({ error: 'Error al obtener categorías' });
+    } else {
+      res.json(results);
     }
   });
 };

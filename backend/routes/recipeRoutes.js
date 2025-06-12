@@ -4,6 +4,8 @@ const recipeController = require('../controllers/recipeController');
 
 router.get('/buscar', recipeController.buscarRecipe);
 
+router.get('/categorias', recipeController.getCategorias);
+
 // Obtener todas las recetas
 router.get('/', recipeController.getRecipes);
 
