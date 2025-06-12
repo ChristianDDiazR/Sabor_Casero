@@ -1,0 +1,96 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: #d8a694 /* color del fondo general */
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.detalle-receta {
+  background-color: #f7e1d7;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Georgia', serif;
+  color: #4c3c36;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.titulo-receta {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #6d4c41;
+}
+
+.descripcion, .paso-a-paso p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.imagen-receta {
+  width: 100%;
+  max-width: 400px;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 8px;
+}
+
+.paso-a-paso h3 {
+  color: #a1887f;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.info-extra {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.info-extra > div {
+  flex: 1 1 30%;
+  margin: 0.5rem;
+}
+
+.autor-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  background-color: #a1887f;
+  border-radius: 50%;
+}
+
+.ingredientes ul {
+  list-style-type: none;
+  padding-left: 0;
+  color: #6d4c41;
+}
+
+.ingredientes li {
+  margin-bottom: 4px;
+}
+
+.categoria p {
+  font-weight: bold;
+  color: #5d4037;
+}
+
+.comentarios {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #e4b7a0;
+  border-radius: 8px;
+}

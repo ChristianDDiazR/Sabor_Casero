@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ComentarioService } from '../services/comentario.service';
 import { Comentario } from '../models/comentario.model';
-
+import { Auth } from '../services/auth';
 @Component({
   selector: 'app-comentario-list',
   standalone: false,
@@ -16,10 +16,11 @@ export class ComentarioListComponent implements OnChanges{
   comentarios: Comentario[] = [];
   cargando = true;
 
-  constructor(private comentarioService: ComentarioService) {}
+  constructor(private comentarioService: ComentarioService, private authService: Auth) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['idReceta'] && this.idReceta) {
+      this.usuarioActualId = this.authService.getUsuarioLogueado()?.id_usuario || null;//nueva
       this.cargarComentarios();
     }
   }

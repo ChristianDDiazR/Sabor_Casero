@@ -25,6 +25,9 @@ export class RecipeList implements OnInit {
     });
   }
 
+  verDetalle(id: number): void {
+    this.router.navigate(['/detalle-recipes', id]);
+  }
 
   goToRecipes() {
     this.router.navigate(['/recipes']);

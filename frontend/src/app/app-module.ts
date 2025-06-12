@@ -14,12 +14,11 @@ import { ComentarioListComponent } from './modules/comentario/comentario-list/co
 import { ComentarioItemComponent } from './modules/comentario/comentario-item/comentario-item.component';
 import { ComentarioFormComponent } from './modules/comentario/comentario-form/comentario-form.component';
 import { Usuario } from './modules/login-register/pages/usuario/usuario';
+import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
+    //quitar de acá los componentes de comentarios, ahora serán compartidos
     App,
-    ComentarioFormComponent,
-    ComentarioItemComponent,
-    ComentarioListComponent,
     Login,
     Register,
     Usuario
@@ -29,7 +28,8 @@ import { Usuario } from './modules/login-register/pages/usuario/usuario';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   exports:[
     ComentarioListComponent,
