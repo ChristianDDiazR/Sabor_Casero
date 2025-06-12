@@ -7,10 +7,10 @@
     <p>{{ comentario.Comentario }}</p>
     <div class="acciones">
       <button (click)="toggleRespuesta()">Responder</button>
-      <ng-container *ngIf="usuarioActualId === comentario.id_usuarioComentario">
-        <button (click)="iniciarEdicion()">Editar</button>
-        <button (click)="comentarioEliminado.emit()">Eliminar</button>
-      </ng-container>
+      <!-- <ng-container *ngIf="usuarioActualId === comentario.id_usuarioComentario"> -->
+        <button  *ngIf="usuarioActualId === comentario.id_usuarioComentario" (click)="iniciarEdicion()">Editar</button>
+        <button  *ngIf="usuarioActualId === comentario.id_usuarioComentario" (click)="comentarioEliminado.emit()">Eliminar</button>
+      <!-- </ng-container> -->
     </div>
   </div>
 

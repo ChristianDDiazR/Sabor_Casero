@@ -62,5 +62,19 @@ export class ComentarioItemComponent {
     this.respondiendo = !this.respondiendo;
   }
 
+  eliminarComentario(): void {
+    if (!confirm('¿Estás seguro de que quieres eliminar este comentario?')) return;
+
+    this.comentarioService.borrarComentario(this.comentario.id_comentario).subscribe({
+      next: () => {
+        this.comentarioEliminado.emit(); // Notifica al padre para actualizar
+      },
+      error: (err) => {
+        console.error('Error al eliminar comentario', err);
+        alert('No se pudo eliminar el comentario.');
+      }
+    });
+  }
+
 
 }
