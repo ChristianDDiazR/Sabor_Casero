@@ -38,4 +38,39 @@ exports.getRecipeById = (req, res) => {
   });
 };
 
+exports.buscarRecipe = (req, res) => {
+  const { search, category } = req.query;
+
+  // Si no hay ningún filtro, devolver todas las recetas
+  if (!search && !category) {
+    return recipeService.getAllRecipes((err, results) => {
+      if (err) {
+        console.error('Error al obtener recetas:', err);
+        return res.status(500).json({ error: 'Error al obtener recetas' });
+      }
+      return res.json(results);
+    });
+  }
+
+  // Si hay filtros, usar la función de buscar con filtros
+  recipeService.buscarRecipesPorFiltros({ search, category }, (err, results) => {
+    if (err) {
+      console.error('Error al buscar recetas:', err);
+      return res.status(500).json({ error: 'Error al buscar recetas' });
+    }
+    return res.json(results);
+  });
+};
+
+exports.getCategorias = (req, res) => {
+  recipeService.obtenerCategorias((err, results) => {
+    if (err) {
+      console.error('Error al obtener categorías:', err);
+      res.status(500).json({ error: 'Error al obtener categorías' });
+    } else {
+      res.json(results);
+    }
+  });
+};
+
 

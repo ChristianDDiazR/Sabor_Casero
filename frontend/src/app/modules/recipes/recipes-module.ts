@@ -6,10 +6,12 @@ import { RecipeList } from './recipe-list/recipe-list';
 import { RecipeDetail } from './recipe-detail/recipe-detail';
 import { RecipeForm } from './recipe-form/recipe-form';
 import { MyRecipes } from './my-recipes/my-recipes';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComentarioListComponent } from '../comentario/comentario-list/comentario-list.component';
 import { ComentarioFormComponent } from '../comentario/comentario-form/comentario-form.component';
 import { ComentarioItemComponent } from '../comentario/comentario-item/comentario-item.component';
 import { SharedModule } from '../../shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,10 @@ import { SharedModule } from '../../shared/shared.module';
   imports: [
     CommonModule,
     RecipesRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     SharedModule
+
   ]
 })
 export class RecipesModule { }

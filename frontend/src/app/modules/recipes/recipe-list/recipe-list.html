@@ -13,48 +13,31 @@
     <button (click)="irALoginOPerfil()" class="icon-btn"><i class="fa fa-user-circle"></i></button>
   </div>
 </nav>
+
+
 <section class="busqueda-recetas">
+  <img src="/2-removebg-preview.png" alt="Imagen de cocina" class="header-image">
   <h2>ENCUENTRA LAS RECETAS DE COCINA<br>PARA TUS COMIDAS FAVORITAS</h2>
   <p>Ingresa palabras clave para encontrar tu receta idea.</p>
 
   <div class="barra-busqueda">
-    <input type="text" placeholder="ej: Salmón con papas fritas" />
+    <input type="text" placeholder="ej: Salmón con papas fritas" (input)="onSearch($event)" />
     <button class="btn-buscar">Buscar</button>
   </div>
 
+  <!-- Filtro por categoría -->
   <div class="filtros">
-    <select>
-      <option>Bases y Salsas</option>
-      <option>Salsas frías</option>
-      <option>Salsas calientes</option>
+    <label for="categoria">Filtrar por:</label>
+    <select [(ngModel)]="selectedCategory" (change)="onFilterByCategory()">
+      <option value="">Todas las categorías</option>
+      <option *ngFor="let cat of categories" [value]="cat.id_categoria">
+        {{ cat.nombre_categoria }}
+      </option>
     </select>
-    <select>
-      <option>Cocina del Mundo</option>
-      <option>Italiana</option>
-      <option>Mexicana</option>
-      <option>China</option>
-    </select>
-    <select>
-      <option>Momento del Día</option>
-      <option>Desayuno</option>
-      <option>Almuerzo</option>
-      <option>Cena</option>
-    </select>
-    <select>
-      <option>Días Especiales</option>
-      <option>Navidad</option>
-      <option>San Valentín</option>
-      <option>Cumpleaños</option>
-    </select>
-    <select>
-      <option>Tipos de Plato</option>
-      <option>Entrada</option>
-      <option>Plato principal</option>
-      <option>Postre</option>
-    </select>
-    <button class="btn-filtrar">Filtrar</button>
+    <button class="btn-filtrar" (click)="onFilterByCategory()">Filtrar</button>
   </div>
 </section>
+
 <div class="wrapper">
   <h2>🍽 Recetas Disponibles</h2>
 
