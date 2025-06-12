@@ -18,4 +18,9 @@ export class RecipeService {
     const params = new HttpParams({ fromObject: filtros });
     return this.http.get<any[]>(`${this.baseUrl}/buscar/recetas`, { params });
   }
+
+  getRecipeById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/recetas/${id}`);
+  }
+
 }
