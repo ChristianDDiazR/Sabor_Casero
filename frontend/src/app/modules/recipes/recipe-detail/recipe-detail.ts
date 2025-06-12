@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { RecipeService } from '../recipes';
+import { Auth } from '../../comentario/services/auth';
 @Component({
   selector: 'app-recipe-detail',
   standalone: false,
@@ -12,6 +13,8 @@ import { RecipeService } from '../recipes';
 
 export class RecipeDetail implements OnInit {
   receta: any;
+  usuarioActualId: number | null = null;//nuevooooooo
+
 
   constructor(
     private route: ActivatedRoute,
