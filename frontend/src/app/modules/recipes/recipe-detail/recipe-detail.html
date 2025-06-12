@@ -1,11 +1,40 @@
-<div *ngIf="receta" class="detalle-receta">
-  <h2>{{ receta.titulo }}</h2>
-  <img *ngIf="receta.imagen" [src]="'data:image/jpeg;base64,' + receta.imagen" alt="Imagen de la receta">
-  <p><strong>Descripción:</strong> {{ receta.descripcion }}</p>
-  <p><strong>Autor:</strong> {{ receta.nombre_usuario }}</p>
-  <p><strong>Categoría:</strong> {{ receta.nombre_categoria }}</p>
-</div>
 
-<div *ngIf="!receta">
-  <p>Cargando detalles de la receta...</p>
+<div class="detalle-receta">
+  <h2 class="titulo-receta">{{ receta?.nombre_receta }}</h2>
+
+  <p class="descripcion">{{ receta?.descripcion }}</p>
+
+  <img *ngIf="receta?.imagen" [src]="'data:image/jpeg;base64,' + receta.imagen" class="imagen-receta" alt="Imagen receta">
+
+  <section class="paso-a-paso">
+    <h3>PASO A PASO</h3>
+    <p>{{ receta?.pasos }}</p>
+  </section>
+
+  <div class="info-extra">
+    <div class="autor">
+      <h4>AUTOR/RA</h4>
+      <div class="autor-info">
+        <div class="avatar"></div>
+        <span>{{ receta?.nombre_usuario }}</span>
+      </div>
+    </div>
+
+    <div class="ingredientes">
+      <h4>INGREDIENTES</h4>
+      <ul>
+        <li *ngFor="let ingrediente of receta?.ingredientes">{{ ingrediente }}</li>
+      </ul>
+    </div>
+
+    <div class="categoria">
+      <h4>CATEGORÍA</h4>
+      <p>{{ receta?.nombre_categoria }}</p>
+    </div>
+  </div>
+
+  <section class="comentarios">
+    <h3>COMENTARIOS</h3>
+    <!-- Espacio reservado -->
+  </section>
 </div>
