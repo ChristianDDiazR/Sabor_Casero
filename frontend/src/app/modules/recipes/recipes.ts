@@ -16,7 +16,7 @@ export class RecipeService {
   // Buscar con filtros (texto, categoría, etc.)
   buscarRecetas(filtros: any): Observable<any[]> {
     const params = new HttpParams({ fromObject: filtros });
-    return this.http.get<any[]>(`${this.baseUrl}/buscar/recetas`, { params });
+    return this.http.get<any[]>(`${this.baseUrl}/listar/recetas/buscar`, { params });
   }
 
   getRecipeById(id: number): Observable<any> {
