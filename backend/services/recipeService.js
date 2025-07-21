@@ -154,6 +154,32 @@ const eliminarRecipe = (id, callback) => {
   });
 };
 
+const obtenerRecipesPorUsuario = (idUsuario, callback) => {
+  const query = `
+    SELECT r.*, u.nombre_usuario, c.nombre_categoria 
+    FROM RECETA r
+    JOIN USUARIO u ON r.id_usuarioReceta = u.id_usuario
+    JOIN CATEGORIA c ON r.id_categoria = c.id_categoria
+    WHERE r.id_usuarioReceta = ?
+    ORDER BY r.Fecha_publicacion DESC
+  `;
+
+  db.query(query, [idUsuario], (err, results) => {
+    if (err) return callback(err, null);
+
+    // Convertir imágenes a Base64
+    const recipesWithImages = results.map(recipe => {
+      if (recipe.imagen && Buffer.isBuffer(recipe.imagen)) {
+        recipe.imagen = recipe.imagen.toString('base64');
+      }
+      return recipe;
+    });
+
+    callback(null, recipesWithImages);
+  });
+};
+
+
 // Exportar todas las funciones
 module.exports = {
   obtenerRecipes,
@@ -163,5 +189,6 @@ module.exports = {
   buscarRecipesPorFiltros,
   agregarRecipe,
   editarRecipe,
-  eliminarRecipe
+  eliminarRecipe,
+  obtenerRecipesPorUsuario
 };

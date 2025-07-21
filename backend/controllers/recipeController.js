@@ -76,7 +76,6 @@ exports.getCategorias = (req, res) => {
 exports.crearRecipe = (req, res) => {
   const { id_usuarioReceta, nombre_receta, descripcion, calificacion, id_categoria, imagen } = req.body;
 
-  // Validar campos obligatorios
   if (!id_usuarioReceta || !nombre_receta || !descripcion || !id_categoria) {
     return res.status(400).json({ error: 'Faltan campos obligatorios' });
   }
@@ -86,7 +85,7 @@ exports.crearRecipe = (req, res) => {
       id_usuarioReceta,
       nombre_receta,
       descripcion,
-      calificacion,
+      calificacion: calificacion || 0,
       id_categoria,
       imagen
     },
@@ -96,7 +95,17 @@ exports.crearRecipe = (req, res) => {
         return res.status(500).json({ error: 'Error al crear receta' });
       }
 
-      res.status(201).json({ mensaje: 'Receta creada exitosamente', id: recipeId });
+      recipeService.obtenerRecipePorId(recipeId, (err, result) => {
+        if (err || !result.length) {
+          // Si no podemos traerla, devolvemos solo el ID
+          return res.status(201).json({ id_receta: recipeId, mensaje: 'Receta creada', ...req.body });
+        }
+        const receta = result[0];
+        if (receta.imagen) {
+          receta.imagen = Buffer.from(receta.imagen).toString('base64');
+        }
+        res.status(201).json(receta); // ✅ Devuelve toda la receta con ID y Base64
+      });
     }
   );
 };
@@ -155,6 +164,25 @@ exports.eliminarRecipe = (req, res) => {
     }
 
     res.json({ mensaje: 'Receta eliminada exitosamente' });
+  });
+};
+
+
+
+exports.getRecipesByUser = (req, res) => {
+  const idUsuario = req.query.id_usuario;
+
+  // Validar que se envíe el ID
+  if (!idUsuario || isNaN(idUsuario)) {
+    return res.status(400).json({ error: 'ID de usuario inválido o faltante' });
+  }
+
+  recipeService.obtenerRecipesPorUsuario(idUsuario, (err, results) => {
+    if (err) {
+      console.error('Error al obtener recetas del usuario:', err);
+      return res.status(500).json({ error: 'Error interno del servidor' });
+    }
+    res.json(results);
   });
 };
 
