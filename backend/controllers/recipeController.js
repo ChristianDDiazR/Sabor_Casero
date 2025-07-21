@@ -73,4 +73,89 @@ exports.getCategorias = (req, res) => {
   });
 };
 
+exports.crearRecipe = (req, res) => {
+  const { id_usuarioReceta, nombre_receta, descripcion, calificacion, id_categoria, imagen } = req.body;
+
+  // Validar campos obligatorios
+  if (!id_usuarioReceta || !nombre_receta || !descripcion || !id_categoria) {
+    return res.status(400).json({ error: 'Faltan campos obligatorios' });
+  }
+
+  recipeService.agregarRecipe(
+    {
+      id_usuarioReceta,
+      nombre_receta,
+      descripcion,
+      calificacion,
+      id_categoria,
+      imagen
+    },
+    (err, recipeId) => {
+      if (err) {
+        console.error('Error al crear receta:', err);
+        return res.status(500).json({ error: 'Error al crear receta' });
+      }
+
+      res.status(201).json({ mensaje: 'Receta creada exitosamente', id: recipeId });
+    }
+  );
+};
+
+exports.editarRecipe = (req, res) => {
+  const id = parseInt(req.params.id);
+  if (isNaN(id)) {
+    return res.status(400).json({ error: 'ID inválido' });
+  }
+
+  const { nombre_receta, descripcion, calificacion, id_categoria, imagen } = req.body;
+
+  // Validar campos obligatorios
+  if (!nombre_receta || !descripcion || !id_categoria) {
+    return res.status(400).json({ error: 'Faltan campos obligatorios' });
+  }
+
+  recipeService.editarRecipe(
+    id,
+    {
+      nombre_receta,
+      descripcion,
+      calificacion,
+      id_categoria,
+      imagen
+    },
+    (err, updated) => {
+      if (err) {
+        console.error('Error al editar receta:', err);
+        return res.status(500).json({ error: 'Error al editar receta' });
+      }
+
+      if (!updated) {
+        return res.status(404).json({ mensaje: 'Receta no encontrada' });
+      }
+
+      res.json({ mensaje: 'Receta actualizada exitosamente' });
+    }
+  );
+};
+
+exports.eliminarRecipe = (req, res) => {
+  const id = parseInt(req.params.id);
+  if (isNaN(id)) {
+    return res.status(400).json({ error: 'ID inválido' });
+  }
+
+  recipeService.eliminarRecipe(id, (err, deleted) => {
+    if (err) {
+      console.error('Error al eliminar receta:', err);
+      return res.status(500).json({ error: 'Error al eliminar receta' });
+    }
+
+    if (!deleted) {
+      return res.status(404).json({ mensaje: 'Receta no encontrada' });
+    }
+
+    res.json({ mensaje: 'Receta eliminada exitosamente' });
+  });
+};
+
 

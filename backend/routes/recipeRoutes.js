@@ -12,4 +12,11 @@ router.get('/', recipeController.getRecipes);
 // Obtener receta por ID
 router.get('/:id', recipeController.getRecipeById);
 
+//Crear Receta
+router.post('/crear', recipeController.crearRecipe);
+
+router.put('/editar/:id', recipeController.editarRecipe);
+
+router.delete('/eliminar/:id', recipeController.eliminarRecipe);
+
 module.exports = router;
