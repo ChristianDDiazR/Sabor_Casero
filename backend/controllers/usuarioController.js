@@ -76,3 +76,28 @@ exports.perfilUsuario = (req, res) => {
         usuario: req.usuario
     });
 };
+
+exports.editarUsuario = (req, res) => {
+    const id_usuario = req.usuario.id_usuario; // viene del token JWT
+    const { nombre_usuario, edad, descripcion, contacto, mail, foto_perfil } = req.body;
+
+    const datosActualizados = {
+        nombre_usuario,
+        edad,
+        descripcion,
+        contacto,
+        mail,
+        foto_perfil
+    };
+
+    Usuario.actualizar(id_usuario, datosActualizados, (err, resultado) => {
+        if (err) {
+            if (err.code === 'ER_DUP_ENTRY') {
+                return res.status(400).json({ mensaje: 'El correo ya está en uso por otro usuario' });
+            }
+            return res.status(500).json({ mensaje: 'Error al actualizar usuario', error: err });
+        }
+
+        res.json({ mensaje: 'Datos del usuario actualizados correctamente' });
+    });
+};
