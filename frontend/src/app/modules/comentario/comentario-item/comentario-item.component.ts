@@ -33,10 +33,6 @@ export class ComentarioItemComponent {
     this.editando = false;
   }
 
-  // guardarEdicion(): void {
-  //   this.editando = false;
-  //   this.comentarioEditado.emit();
-  // }
   guardarEdicion(): void {
   if (!this.textoEditado.trim()) return; // Validación básica
 

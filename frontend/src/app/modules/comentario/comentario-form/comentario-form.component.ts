@@ -32,14 +32,6 @@ export class ComentarioFormComponent {
 
     this.enviando = true;
 
-    // const nuevoComentario: NuevoComentario = {
-    //   id_usuarioComentario: 2, // Reemplazar con ID de usuario real this.idUsuario,
-    //   id_recetaComentario: 1,//this.idReceta,
-    //   Comentario: this.comentarioControl.value!,
-    //   id_comentarioPadre: this.idComentarioPadre || null
-    // };
-
-
     const nuevoComentario: NuevoComentario = {
       id_usuarioComentario: usuario.id_usuario,
       id_recetaComentario: this.idReceta,
