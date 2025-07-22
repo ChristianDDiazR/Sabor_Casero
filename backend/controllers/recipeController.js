@@ -142,7 +142,17 @@ exports.editarRecipe = (req, res) => {
         return res.status(404).json({ mensaje: 'Receta no encontrada' });
       }
 
-      res.json({ mensaje: 'Receta actualizada exitosamente' });
+      
+      recipeService.obtenerRecipePorId(id, (err, result) => {
+        if (err || !result.length) {
+          return res.status(200).json({ mensaje: 'Receta actualizada, pero no se pudo obtener los datos' });
+        }
+        const receta = result[0];
+        if (receta.imagen) {
+          receta.imagen = Buffer.from(receta.imagen).toString('base64');
+        }
+        res.json(receta);
+      });
     }
   );
 };
