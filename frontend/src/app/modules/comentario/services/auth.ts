@@ -61,6 +61,15 @@ export class Auth {
   }
 
   isLoggedIn(): boolean {
-  return !!localStorage.getItem('token');
-}
+    return !!localStorage.getItem('token');
+  }
+
+  editarUsuario(data: any): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http.put('http://localhost:3000/api/usuarios/editar', data, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+  }
 }

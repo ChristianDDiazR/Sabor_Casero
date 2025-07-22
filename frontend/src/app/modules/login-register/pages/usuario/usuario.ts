@@ -21,4 +21,8 @@ export class Usuario implements OnInit{
     this.authService.logout();
     this.router.navigate(['/']); // Recargar la página para reflejar el cambio
   }
+
+  irAEditar(): void {
+  this.router.navigate(['/editar-usuario']);
+  }
 }
