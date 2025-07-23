@@ -1,6 +1,8 @@
+<!-- src/app/modules/recipes/favoritos-list/favoritos-list.html -->
+
 <nav class="navbar">
   <div class="navbar-left">
-    <a href="#">INICIO</a>
+    <a (click)="goToRecipes()" href="#">INICIO</a>
     <a href="#">CATEGORÍAS</a>
   </div>
 
@@ -15,32 +17,14 @@
   </div>
 </nav>
 
-
 <section class="busqueda-recetas">
   <img src="/2-removebg-preview.png" alt="Imagen de cocina" class="header-image">
-  <h2>ENCUENTRA LAS RECETAS DE COCINA<br>PARA TUS COMIDAS FAVORITAS</h2>
-  <p>Ingresa palabras clave para encontrar tu receta idea.</p>
-
-  <div class="barra-busqueda">
-    <input type="text" placeholder="ej: Salmón con papas fritas" (input)="onSearch($event)" />
-    <button class="btn-buscar">Buscar</button>
-  </div>
-
-  <!-- Filtro por categoría -->
-  <div class="filtros">
-    <label for="categoria">Filtrar por:</label>
-    <select [(ngModel)]="selectedCategory" (change)="onFilterByCategory()">
-      <option value="">Todas las categorías</option>
-      <option *ngFor="let cat of categories" [value]="cat.id_categoria">
-        {{ cat.nombre_categoria }}
-      </option>
-    </select>
-    <button class="btn-filtrar" (click)="onFilterByCategory()">Filtrar</button>
-  </div>
+  <h2>MIS RECETAS FAVORITAS ❤️</h2>
+  <p>Estas son las recetas que marcaste con "me gusta".</p>
 </section>
 
 <div class="wrapper">
-  <h2>🍽 Recetas Disponibles</h2>
+  <h2>❤️ Mis Recetas Favoritas</h2>
 
   <div *ngIf="recipes.length > 0; else noData" class="grid">
     <div class="card" *ngFor="let receta of recipes">
@@ -54,6 +38,6 @@
   </div>
 
   <ng-template #noData>
-    <p class="no-data">No hay recetas disponibles.</p>
+    <p class="no-data">No tienes recetas favoritas aún.</p>
   </ng-template>
 </div>

@@ -54,4 +54,10 @@ export class RecipeService {
       `${this.baseUrl}/listar/recetas/${idReceta}/like`,
     {headers: this.getAuthHeaders()});
   }
+
+  getFavoritos(idUsuario: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/listar/recetas/favoritos/${idUsuario}`,
+      {headers: this.getAuthHeaders()}
+    );
+  }
 }

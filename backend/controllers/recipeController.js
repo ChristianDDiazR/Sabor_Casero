@@ -130,4 +130,20 @@ exports.verificarLike = (req, res) => {
   });
 };
 
+exports.obtenerFavoritosPorUsuario = (req, res) => {
+  const id_usuario = req.params.id_usuario;
+
+  // Pero asegúrate de que el usuario del token sea el mismo que consulta
+  if (req.usuario.id_usuario !== parseInt(id_usuario)) {
+    return res.status(403).json({ mensaje: 'Acceso denegado' });
+  }
+
+  recipeService.obtenerFavoritosPorUsuario(id_usuario, (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: 'Error al obtener favoritos' });
+    }
+    res.json(results);
+  });
+};
+
 

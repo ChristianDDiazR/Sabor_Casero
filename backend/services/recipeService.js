@@ -84,7 +84,20 @@ const obtenerFavoritosPorUsuario = (id_usuario, callback) => {
     JOIN CATEGORIA c ON r.id_categoria = c.id_categoria
     WHERE mg.id_usuario = ?
   `;
-  db.query(query, [id_usuario], callback);
+  //db.query(query, [id_usuario], callback);
+  db.query(query, [id_usuario], (err, results) => {
+    if (err) return callback(err);
+
+    // ✅ Convertir imágenes a base64
+    const favoritosConImagen = results.map(receta => {
+      if (receta.imagen && Buffer.isBuffer(receta.imagen)) {
+        receta.imagen = receta.imagen.toString('base64');
+      }
+      return receta;
+    });
+
+    callback(null, favoritosConImagen);
+  });
 };
 //DAR ME GUSTA-------------------------
 
