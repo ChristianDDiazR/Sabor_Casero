@@ -140,15 +140,118 @@ const buscarRecipesPorFiltros = (filtros, callback) => {
   });
 };
 
+// Agregar receta
+const agregarRecipe = (data, callback) => {
+  const query = `
+    INSERT INTO RECETA (
+      id_usuarioReceta,
+      nombre_receta,
+      descripcion,
+      Fecha_publicacion,
+      Calificacion,
+      id_categoria,
+      imagen
+    ) VALUES (?, ?, ?, NOW(), ?, ?, ?)
+  `;
+  
+  // Si no hay imagen, enviar NULL
+  const params = [
+    data.id_usuarioReceta,
+    data.nombre_receta,
+    data.descripcion,
+    data.calificacion,
+    data.id_categoria,
+    data.imagen || null
+  ];
+
+  db.query(query, params, (err, result) => {
+    if (err) return callback(err, null);
+    callback(null, result.insertId); // Devuelve el ID de la receta creada
+  });
+};
+
+// Editar receta
+const editarRecipe = (id, data, callback) => {
+  const query = `
+    UPDATE RECETA 
+    SET 
+      nombre_receta = ?,
+      descripcion = ?,
+      Calificacion = ?,
+      id_categoria = ?,
+      imagen = ?
+    WHERE id_receta = ?
+  `;
+
+  const params = [
+    data.nombre_receta,
+    data.descripcion,
+    data.calificacion,
+    data.id_categoria,
+    data.imagen || null, // Si no hay imagen, deja NULL
+    id
+  ];
+
+  db.query(query, params, (err, result) => {
+    if (err) return callback(err, null);
+    callback(null, result.affectedRows > 0); // Devuelve true si se actualizó algo
+  });
+};
+
+// Eliminar receta
+const eliminarRecipe = (id, callback) => {
+  const query = `
+    DELETE FROM RECETA 
+    WHERE id_receta = ?
+  `;
+
+  db.query(query, [id], (err, result) => {
+    if (err) return callback(err, null);
+    callback(null, result.affectedRows > 0); // Devuelve true si se eliminó algo
+  });
+};
+
+const obtenerRecipesPorUsuario = (idUsuario, callback) => {
+  const query = `
+    SELECT r.*, u.nombre_usuario, c.nombre_categoria 
+    FROM RECETA r
+    JOIN USUARIO u ON r.id_usuarioReceta = u.id_usuario
+    JOIN CATEGORIA c ON r.id_categoria = c.id_categoria
+    WHERE r.id_usuarioReceta = ?
+    ORDER BY r.Fecha_publicacion DESC
+  `;
+
+  db.query(query, [idUsuario], (err, results) => {
+    if (err) return callback(err, null);
+
+    // Convertir imágenes a Base64
+    const recipesWithImages = results.map(recipe => {
+      if (recipe.imagen && Buffer.isBuffer(recipe.imagen)) {
+        recipe.imagen = recipe.imagen.toString('base64');
+      }
+      return recipe;
+    });
+
+    callback(null, recipesWithImages);
+  });
+};
+
+
 // Exportar todas las funciones
 module.exports = {
   obtenerRecipes,
   obtenerRecipePorId,
   buscarRecipesPorNombre,
   obtenerCategorias,
+  buscarRecipesPorFiltros,
+  agregarRecipe,
+  editarRecipe,
+  eliminarRecipe,
+  obtenerRecipesPorUsuario,
   buscarRecipesPorFiltros, // 👈 Exportamos la nueva función aquí
   haDadoLike,
   darLike,
   quitarLike,
   obtenerFavoritosPorUsuario
+
 };

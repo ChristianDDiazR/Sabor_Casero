@@ -145,3 +145,286 @@
     padding-bottom: 1.25rem;
   }
 }
+
+
+/* === SECCIÓN DE RECETAS DEL USUARIO === */
+
+.recetas-section {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: #4a1c2c;
+  margin-bottom: 1.25rem;
+  text-align: center;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+}
+
+.btn-crear-receta {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto 1.5rem auto;
+  background-color: #4a1c2c;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-family: 'Georgia', serif;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-crear-receta:hover {
+  background-color: #3a1621;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Lista de recetas */
+.recetas-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.receta-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background-color: #fdfbfd;
+  transition: box-shadow 0.2s;
+}
+
+.receta-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.receta-imagen img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.receta-info {
+  flex: 1;
+  min-width: 0; /* Para que el texto no desborde */
+}
+
+.receta-nombre {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.receta-descripcion {
+  margin: 0 0 0.5rem 0;
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.receta-categoria {
+  display: inline-block;
+  background-color: #f0e6dc;
+  color: #4a1c2c;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Acciones (botones Editar/Eliminar) */
+.receta-acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.btn-editar,
+.btn-eliminar {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Georgia', serif;
+}
+
+.btn-editar {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-eliminar {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-editar:hover {
+  background-color: #0056b3;
+}
+
+.btn-eliminar:hover {
+  background-color: #c82333;
+}
+
+/* Mensaje cuando no hay recetas */
+.no-recetas {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  font-size: 1rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px dashed #ddd;
+}
+
+/* Pantalla de carga */
+.cargando {
+  text-align: center;
+  color: #666;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+/* Responsive: Ajustes para móviles */
+@media (max-width: 768px) {
+  .receta-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .receta-acciones {
+    margin-left: 0;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .receta-info {
+    text-align: center;
+  }
+
+  .receta-categoria {
+    font-size: 0.9rem;
+  }
+}
+
+/* === MODAL === */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 90%;
+  padding: 1.5rem;
+}
+
+.modal-title {
+  margin-top: 0;
+  color: #4a1c2c;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  color: #4a1c2c;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.form-control-file {
+  width: 100%;
+  padding: 0.5rem 0;
+}
+
+.imagen-preview {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.imagen-preview img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn-cancelar {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-guardar {
+  background-color: #4a1c2c;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-cancelar:hover {
+  background-color: #5a6268;
+}
+
+.btn-guardar:hover {
+  background-color: #3a1621;
+}

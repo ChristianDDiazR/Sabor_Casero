@@ -19,5 +19,14 @@ router.get('/', recipeController.getRecipes);
 
 
 
+//Crear Receta
+router.post('/crear', recipeController.crearRecipe);
+
+router.put('/editar/:id', recipeController.editarRecipe);
+
+router.delete('/eliminar/:id', recipeController.eliminarRecipe);
+
+router.get('/buscar/usuario', recipeController.getRecipesByUser);
+
 module.exports = router;
 
