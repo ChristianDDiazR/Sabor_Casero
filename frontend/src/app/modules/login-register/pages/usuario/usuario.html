@@ -1,49 +1,154 @@
-<div class="perfil-container" *ngIf="usuario">
+<div class="perfil-container" *ngIf="usuario; else cargando">
+  <!-- Tarjeta de Perfil -->
   <div class="perfil-card">
     <div class="perfil-header">
       <h2 class="perfil-titulo">Mi Perfil</h2>
       <div class="perfil-foto-wrapper">
         <img
-          class="perfil-foto"
-          [src]="usuario.foto_perfil || 'assets/profile-icon-login-head-icon-vector.jpg'"
-          alt="Foto de perfil"
-        />
+            class="perfil-foto"
+            [src]="getFotoUrl()"
+            alt="Foto de perfil"
+            (error)="onImageError($event)" />
       </div>
     </div>
-    
+
     <div class="perfil-info">
       <div class="info-item">
         <span class="info-label">Nombre de usuario:</span>
         <span class="info-valor">{{ usuario.nombre_usuario }}</span>
       </div>
-      
+
       <div class="info-item" *ngIf="usuario.edad">
         <span class="info-label">Edad:</span>
         <span class="info-valor">{{ usuario.edad }} años</span>
       </div>
-      
+
       <div class="info-item" *ngIf="usuario.descripcion">
         <span class="info-label">Descripción:</span>
         <span class="info-valor">{{ usuario.descripcion }}</span>
       </div>
-      
+
       <div class="info-item" *ngIf="usuario.contacto">
         <span class="info-label">Contacto:</span>
         <span class="info-valor">{{ usuario.contacto }}</span>
       </div>
-      
+
       <div class="info-item">
         <span class="info-label">Email:</span>
         <span class="info-valor">{{ usuario.mail }}</span>
       </div>
     </div>
-    
     <div class="perfil-acciones">
-      <button class="btn-primario">Editar Perfil</button>
+      <button class="btn-primario" (click)="irAEditar()">Editar Perfil</button>
     </div>
 
     <div class="perfil-acciones">
       <button class="btn-primario" (click)="cerrarSesion()">Cerrar sesión</button>
     </div>
   </div>
+
+  <!-- Sección de Recetas -->
+  <div class="recetas-section">
+    <h3 class="section-title">Mis Recetas</h3>
+
+    <!-- Botón para crear -->
+    <button class="btn-crear-receta" (click)="abrirModalCrear()">
+      + Crear Nueva Receta
+    </button>
+
+    <!-- Lista de recetas -->
+    <div class="recetas-lista" *ngIf="recetas.length > 0; else noRecetas">
+      <div class="receta-item" *ngFor="let receta of recetas">
+        <div class="receta-imagen">
+          <img [src]="'data:image/jpeg;base64,' + receta.imagen" [alt]="receta.nombre_receta" />
+        </div>
+
+        <div class="receta-info">
+          <h4 class="receta-nombre">{{ receta.nombre_receta }}</h4>
+          <p class="receta-descripcion">{{ receta.descripcion | slice:0:120 }}{{ receta.descripcion.length > 120 ? '...' : '' }}</p>
+          <small class="receta-categoria">Categoría: {{ receta.nombre_categoria }}</small>
+        </div>
+
+        <div class="receta-acciones">
+          <button class="btn-editar" (click)="abrirModalEditar(receta.id_receta)">Editar</button>
+          <button class="btn-eliminar" (click)="eliminarReceta(receta.id_receta)">Eliminar</button>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noRecetas>
+      <p class="no-recetas">Aún no has creado ninguna receta.</p>
+    </ng-template>
+  </div>
 </div>
+
+<!-- Modal Único: Crear y Editar -->
+<div class="modal-overlay" *ngIf="showCrearModal" (click)="cerrarModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h3 class="modal-title">
+      {{ recetaForm.id_receta ? 'Editar Receta' : 'Crear Nueva Receta' }}
+    </h3>
+
+    <form (ngSubmit)="guardarReceta()">
+      <!-- Nombre -->
+      <div class="form-group">
+        <label>Nombre *</label>
+        <input type="text"
+               [(ngModel)]="recetaForm.nombre_receta"
+               name="nombre"
+               required
+               class="form-control" />
+      </div>
+
+      <!-- Descripción -->
+      <div class="form-group">
+        <label>Descripción *</label>
+        <textarea rows="3"
+                  [(ngModel)]="recetaForm.descripcion"
+                  name="descripcion"
+                  required
+                  class="form-control"></textarea>
+      </div>
+
+      <!-- Categoría -->
+      <div class="form-group">
+        <label>Categoría *</label>
+        <select [(ngModel)]="recetaForm.id_categoria"
+                name="categoria"
+                required
+                class="form-control">
+          <option value="" disabled>Selecciona...</option>
+          <option *ngFor="let cat of categorias" [value]="cat.id_categoria">{{ cat.nombre_categoria }}</option>
+        </select>
+      </div>
+
+      <!-- Imagen -->
+      <div class="form-group">
+        <label>Imagen (opcional)</label>
+        <input type="file"
+               accept="image/*"
+               (change)="onFileSelected($event)"
+               class="form-control-file" />
+        <small>Se admiten JPG, PNG, GIF. Máx. 5MB.</small>
+      </div>
+
+      <!-- Vista previa -->
+      <div class="imagen-preview" *ngIf="recetaForm.imagen">
+        <img [src]="'data:image/jpeg;base64,' + recetaForm.imagen" alt="Vista previa" />
+      </div>
+
+      <!-- Botones -->
+      <div class="modal-actions">
+        <button type="button" class="btn-cancelar" (click)="cerrarModal()">Cancelar</button>
+        <button type="submit" class="btn-guardar">
+          {{ recetaForm.id_receta ? 'Guardar Cambios' : 'Crear Receta' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Pantalla de carga -->
+<ng-template #cargando>
+  <div class="cargando">Cargando perfil...</div>
+</ng-template>

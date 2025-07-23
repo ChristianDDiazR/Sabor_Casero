@@ -94,3 +94,40 @@ body, html {
   background-color: #e4b7a0;
   border-radius: 8px;
 }
+
+.acciones-receta {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-like {
+  background: none;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.btn-like:hover:not(:disabled) {
+  background: #f0f0f0;
+}
+
+.btn-like:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-like.liked {
+  color: red;
+  font-weight: bold;
+  border-color: red;
+}
+
+.contador-likes {
+  font-size: 14px;
+  color: #666;
+}

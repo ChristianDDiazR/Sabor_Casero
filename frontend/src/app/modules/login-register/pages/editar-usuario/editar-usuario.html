@@ -1,0 +1,47 @@
+<div class="perfil-container" *ngIf="usuario">
+  <div class="perfil-card">
+    <div class="perfil-header">
+      <h2 class="perfil-titulo">Editar Perfil</h2>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="guardarCambios()" class="perfil-info">
+      <div class="info-item">
+        <label class="info-label">Nombre de usuario</label>
+        <input formControlName="nombre_usuario" class="info-input" />
+      </div>
+
+      <div class="info-item">
+        <label class="info-label">Edad</label>
+        <input type="number" formControlName="edad" class="info-input" />
+      </div>
+
+      <div class="info-item">
+        <label class="info-label">Descripción</label>
+        <textarea formControlName="descripcion" class="info-input"></textarea>
+      </div>
+
+      <div class="info-item">
+        <label class="info-label">Contacto</label>
+        <input formControlName="contacto" class="info-input" />
+      </div>
+
+      <div class="info-item">
+        <label class="info-label">Email</label>
+        <input type="email" formControlName="mail" class="info-input" />
+      </div>
+
+      <div class="info-item">
+        <label class="info-label">Foto de perfil (URL)</label>
+        <input formControlName="foto_perfil" class="info-input" />
+      </div>
+
+      <div *ngIf="fotoPerfilUrl" class="preview-avatar">
+          <img [src]="fotoPerfilUrl" alt="Vista previa" class="avatar-preview" (error)="onPreviewError($event)" />
+     </div>
+
+      <div class="perfil-acciones">
+        <button type="submit" class="btn-primario">Guardar Cambios</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -11,6 +11,7 @@ import { ComentarioListComponent } from '../comentario/comentario-list/comentari
 import { ComentarioFormComponent } from '../comentario/comentario-form/comentario-form.component';
 import { ComentarioItemComponent } from '../comentario/comentario-item/comentario-item.component';
 import { SharedModule } from '../../shared/shared.module';
+import { FavoritosList } from './favoritos-list/favoritos-list';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { SharedModule } from '../../shared/shared.module';
     RecipeDetail,
     RecipeForm,
     MyRecipes,
+    FavoritosList,
   ],
   imports: [
     CommonModule,
