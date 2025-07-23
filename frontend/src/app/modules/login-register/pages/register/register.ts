@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Auth } from '../../../comentario/services/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -21,11 +22,14 @@ usuario = {
 
   mensaje = '';
 
-  constructor(private authService: Auth) {}
+  constructor(private authService: Auth, private router: Router) {}
 
   registrar() {
     this.authService.register(this.usuario).subscribe({
-      next: res => this.mensaje = res.mensaje,
+      next: res => {
+        this.mensaje = res.mensaje;
+        this.router.navigate(['/login']); // Redirige solo si el registro fue exitoso
+      },
       error: err => this.mensaje = err.error?.mensaje || 'Error'
     });
   }
