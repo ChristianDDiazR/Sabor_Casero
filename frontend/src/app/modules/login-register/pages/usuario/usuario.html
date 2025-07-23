@@ -57,7 +57,7 @@
     <div class="recetas-lista" *ngIf="recetas.length > 0; else noRecetas">
       <div class="receta-item" *ngFor="let receta of recetas">
         <div class="receta-imagen">
-          <img [src]="'image/jpeg;base64,' + receta.imagen" [alt]="receta.nombre_receta" />
+          <img [src]="'data:image/jpeg;base64,' + receta.imagen" [alt]="receta.nombre_receta" />
         </div>
 
         <div class="receta-info">
@@ -115,7 +115,7 @@
                 required
                 class="form-control">
           <option value="" disabled>Selecciona...</option>
-          <option *ngFor="let cat of categorias" [value]="cat.id">{{ cat.nombre }}</option>
+          <option *ngFor="let cat of categorias" [value]="cat.id_categoria">{{ cat.nombre_categoria }}</option>
         </select>
       </div>
 
@@ -131,7 +131,7 @@
 
       <!-- Vista previa -->
       <div class="imagen-preview" *ngIf="recetaForm.imagen">
-        <img [src]="'image/jpeg;base64,' + recetaForm.imagen" alt="Vista previa" />
+        <img [src]="'data:image/jpeg;base64,' + recetaForm.imagen" alt="Vista previa" />
       </div>
 
       <!-- Botones -->

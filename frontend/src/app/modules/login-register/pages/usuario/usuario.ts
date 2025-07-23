@@ -25,13 +25,7 @@ export class Usuario implements OnInit {
     imagen: ''
   };
 
-  categorias = [
-    { id: 1, nombre: 'Desayuno' },
-    { id: 2, nombre: 'Almuerzo' },
-    { id: 3, nombre: 'Cena' },
-    { id: 4, nombre: 'Postre' },
-    { id: 5, nombre: 'Bebida' }
-  ];
+  categorias: any[] = []; // Ahora será llenado dinámicamente
 
   constructor(
     private authService: Auth,
@@ -41,9 +35,21 @@ export class Usuario implements OnInit {
 
   ngOnInit(): void {
     this.usuario = this.authService.getUsuario();
+    this.cargarCategorias(); // <-- Nueva llamada
     if (this.usuario?.id_usuario) {
       this.cargarRecetas();
     }
+  }
+
+  cargarCategorias(): void {
+    this.recipeService.getCategorias().subscribe({
+      next: (categorias) => {
+        this.categorias = categorias;
+      },
+      error: (err) => {
+        console.error('Error al cargar categorías:', err);
+      }
+    });
   }
 
   cargarRecetas(): void {
@@ -167,4 +173,5 @@ export class Usuario implements OnInit {
     this.authService.logout();
     this.router.navigate(['/']);
   }
+
 }
