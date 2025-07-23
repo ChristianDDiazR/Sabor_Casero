@@ -35,6 +35,10 @@
         <input formControlName="foto_perfil" class="info-input" />
       </div>
 
+      <div *ngIf="fotoPerfilUrl" class="preview-avatar">
+          <img [src]="fotoPerfilUrl" alt="Vista previa" class="avatar-preview" (error)="onPreviewError($event)" />
+     </div>
+
       <div class="perfil-acciones">
         <button type="submit" class="btn-primario">Guardar Cambios</button>
       </div>

@@ -16,6 +16,7 @@ usuario = {
     mail: '',
     password: '',
     foto_perfil: ''
+
   };
 
   mensaje = '';
