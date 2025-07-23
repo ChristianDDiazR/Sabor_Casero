@@ -50,4 +50,15 @@ export class EditarUsuarioComponent implements OnInit {
       }
     });
   }
+
+  get fotoPerfilUrl(): string | null {
+    const url = this.form.get('foto_perfil')?.value;
+    if (url && (url.startsWith('http://') || url.startsWith('https://'))) {
+      return url;
+    }
+    return null;
+  }
+  onPreviewError(event: any): void {
+    event.target.style.display = 'none';
+  }
 }

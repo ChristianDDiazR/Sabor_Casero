@@ -180,4 +180,16 @@ export class Usuario implements OnInit {
   this.router.navigate(['/editar-usuario']);
   }
 
+  getFotoUrl(): string {
+    const foto = this.usuario?.foto_perfil?.trim();
+    if (foto && (foto.startsWith('http://') || foto.startsWith('https://'))) {
+      return foto;
+    }
+    return 'assets/profile-icon-login-head-icon-vector.jpg';
+  }
+
+  onImageError(event: any): void {
+    event.target.src = 'assets/profile-icon-login-head-icon-vector.jpg';
+  }
+
 }
