@@ -19,8 +19,8 @@
 }
 
 .perfil-header {
-  background-color: #4a1c2c; /* Tonos marrón oscuro como en el ejemplo */
-  color: white;
+  background-color: #754B4D; /* Tonos marrón oscuro como en el ejemplo */
+  color: #E0CBB9;
   padding: 2.5rem;
   text-align: center;
 }
@@ -35,7 +35,7 @@
 .perfil-foto-wrapper {
   display: inline-block;
   padding: 6px;
-  background-color: white;
+  background-color: #E0CBB9;
   border-radius: 50%;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
@@ -45,18 +45,18 @@
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #fff; /* Contraste con fondo oscuro */
+  border: 3px solid #E0CBB9; /* Contraste con fondo oscuro */
 }
 
 .perfil-info {
   padding: 2.5rem;
-  background-color: #fff;
+  background-color: #D8A694;
 }
 
 .info-item {
   margin-bottom: 1.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #eee; /* Línea tenue */
+  border-bottom: 1px solid #E0CBB9; /* Línea tenue */
   display: flex;
   flex-direction: column;
 }
@@ -77,21 +77,21 @@
 }
 
 .info-valor {
-  color: #666; /* Texto gris oscuro */
+  color: #754B4D; /* Texto gris oscuro */
   font-size: 1rem;
   line-height: 1.6;
 }
 
 .perfil-acciones {
   padding: 2rem 2.5rem;
-  background-color: #fff;
-  border-top: 1px solid #eee;
+  background-color: #D8A694;
+  border-top: 1px solid #D8A694;
   text-align: center;
 }
 
 .btn-primario {
-  background-color: #4a1c2c; /* Botón en tono oscuro */
-  color: white;
+  background-color: #754B4D; /* Botón en tono oscuro */
+  color: #E0CBB9;
   border: none;
   padding: 0.875rem 2.5rem;
   font-size: 1rem;
@@ -152,14 +152,14 @@
 .recetas-section {
   margin-top: 2rem;
   padding: 1.5rem;
-  background-color: #fff;
+  background-color: #D8A694;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .section-title {
   font-size: 1.5rem;
-  color: #4a1c2c;
+  color: #754B4D;
   margin-bottom: 1.25rem;
   text-align: center;
   font-weight: normal;
@@ -171,8 +171,8 @@
   width: 100%;
   max-width: 320px;
   margin: 0 auto 1.5rem auto;
-  background-color: #4a1c2c;
-  color: white;
+  background-color: #754B4D;
+  color: #E0CBB9;
   border: none;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
@@ -201,9 +201,9 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  border: 1px solid #eee;
+  border: 1px solid #A86A65;
   border-radius: 10px;
-  background-color: #fdfbfd;
+  background-color: #E0CBB9;
   transition: box-shadow 0.2s;
 }
 
@@ -216,7 +216,7 @@
   height: 80px;
   object-fit: cover;
   border-radius: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid #AB8882;
 }
 
 .receta-info {
@@ -227,13 +227,13 @@
 .receta-nombre {
   margin: 0 0 0.5rem 0;
   font-size: 1.1rem;
-  color: #333;
+  color: #754B4D;
   font-weight: bold;
 }
 
 .receta-descripcion {
   margin: 0 0 0.5rem 0;
-  color: #666;
+  color: #754B4D;
   font-size: 0.95rem;
   line-height: 1.5;
 }
@@ -267,34 +267,34 @@
 }
 
 .btn-editar {
-  background-color: #007bff;
+  background-color: #dbb275;
   color: white;
 }
 
 .btn-eliminar {
-  background-color: #dc3545;
+  background-color: #75181d;
   color: white;
 }
 
 .btn-editar:hover {
-  background-color: #0056b3;
+  background-color: #c39145;
 }
 
 .btn-eliminar:hover {
-  background-color: #c82333;
+  background-color: #4d080c;
 }
 
 /* Mensaje cuando no hay recetas */
 .no-recetas {
   text-align: center;
-  color: #999;
+  color: #754B4D;
   font-style: italic;
   font-size: 1rem;
   margin: 1.5rem 0;
   padding: 1rem;
-  background-color: #f9f9f9;
+  background-color: #E0CBB9;
   border-radius: 8px;
-  border: 1px dashed #ddd;
+  border: 1px dashed #754B4D;
 }
 
 /* Pantalla de carga */
@@ -343,7 +343,7 @@
 }
 
 .modal-content {
-  background-color: white;
+  background-color: #E0CBB9;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   max-width: 500px;
@@ -353,7 +353,7 @@
 
 .modal-title {
   margin-top: 0;
-  color: #4a1c2c;
+  color: #754B4D;
   font-size: 1.4rem;
   text-align: center;
   margin-bottom: 1.2rem;
@@ -361,12 +361,14 @@
 
 .form-group {
   margin-bottom: 1rem;
+  margin-right: 1.5rem;
+
 }
 
 .form-group label {
   display: block;
   font-weight: bold;
-  color: #4a1c2c;
+  color: #754B4D;
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
 }
@@ -374,7 +376,7 @@
 .form-control {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #ddd;
+  border: 1px solid #754B4D;
   border-radius: 6px;
   font-size: 1rem;
 }
@@ -404,7 +406,7 @@
 }
 
 .btn-cancelar {
-  background-color: #6c757d;
+  background-color: #D8A694;
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -413,7 +415,7 @@
 }
 
 .btn-guardar {
-  background-color: #4a1c2c;
+  background-color: #754B4D;
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -422,9 +424,9 @@
 }
 
 .btn-cancelar:hover {
-  background-color: #5a6268;
+  background-color: #da957c;
 }
 
 .btn-guardar:hover {
-  background-color: #3a1621;
+  background-color: #5c2b2d;
 }
