@@ -1,14 +1,14 @@
 .info-input {
   padding: 0.6rem;
   font-size: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid #A86A65;
   border-radius: 6px;
   font-family: 'Georgia', serif;
 }
 
 .perfil-container {
   min-height: 100vh;
-  background-color: #f5ebe0; /* Fondo claro similar al ejemplo */
+  background-color: #E0CBB9; /* Fondo claro similar al ejemplo */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,8 +27,8 @@
 }
 
 .perfil-header {
-  background-color: #4a1c2c; /* Tonos marrón oscuro como en el ejemplo */
-  color: white;
+  background-color: #754B4D; /* Tonos marrón oscuro como en el ejemplo */
+  color: #E0CBB9;
   padding: 2.5rem;
   text-align: center;
 }
@@ -58,13 +58,13 @@
 
 .perfil-info {
   padding: 2.5rem;
-  background-color: #fff;
+  background-color: #D8A694;
 }
 
 .info-item {
   margin-bottom: 1.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #eee; /* Línea tenue */
+  border-bottom: 1px solid #E0CBB9; /* Línea tenue */
   display: flex;
   flex-direction: column;
 }
@@ -92,14 +92,14 @@
 
 .perfil-acciones {
   padding: 2rem 2.5rem;
-  background-color: #fff;
-  border-top: 1px solid #eee;
+  background-color: #D8A694;
+  border-top: 1px solid #D8A694;
   text-align: center;
 }
 
 .btn-primario {
-  background-color: #4a1c2c; /* Botón en tono oscuro */
-  color: white;
+  background-color: #754B4D; /* Botón en tono oscuro */
+  color: #E0CBB9;
   border: none;
   padding: 0.875rem 2.5rem;
   font-size: 1rem;
@@ -119,20 +119,20 @@
   .perfil-container {
     padding: 1.5rem;
   }
-  
+
   .perfil-header {
     padding: 1.75rem;
   }
-  
+
   .perfil-foto {
     width: 100px;
     height: 100px;
   }
-  
+
   .perfil-info {
     padding: 1.75rem;
   }
-  
+
   .perfil-acciones {
     padding: 1.5rem 1.75rem;
   }
@@ -142,12 +142,12 @@
   .perfil-titulo {
     font-size: 1.4rem;
   }
-  
+
   .perfil-foto {
     width: 80px;
     height: 80px;
   }
-  
+
   .info-item {
     margin-bottom: 1.25rem;
     padding-bottom: 1.25rem;

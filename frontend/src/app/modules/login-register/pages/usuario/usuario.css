@@ -1,6 +1,6 @@
 .perfil-container {
   min-height: 100vh;
-  background-color: #f5ebe0; /* Fondo claro similar al ejemplo */
+  background-color: #E0CBB9; /* Fondo claro similar al ejemplo */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,20 +111,20 @@
   .perfil-container {
     padding: 1.5rem;
   }
-  
+
   .perfil-header {
     padding: 1.75rem;
   }
-  
+
   .perfil-foto {
     width: 100px;
     height: 100px;
   }
-  
+
   .perfil-info {
     padding: 1.75rem;
   }
-  
+
   .perfil-acciones {
     padding: 1.5rem 1.75rem;
   }
@@ -134,12 +134,12 @@
   .perfil-titulo {
     font-size: 1.4rem;
   }
-  
+
   .perfil-foto {
     width: 80px;
     height: 80px;
   }
-  
+
   .info-item {
     margin-bottom: 1.25rem;
     padding-bottom: 1.25rem;

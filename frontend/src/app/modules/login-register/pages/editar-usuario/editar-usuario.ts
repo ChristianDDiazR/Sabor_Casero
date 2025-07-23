@@ -65,8 +65,7 @@ export class EditarUsuarioComponent implements OnInit {
 
         alert('Perfil actualizado correctamente');
 
-        // ✅ Opcional: redirigir al perfil
-        this.router.navigate(['/perfil']);
+        this.router.navigate(['/perfil'], { replaceUrl: true });
       },
       error: (err) => {
         console.error(err);
