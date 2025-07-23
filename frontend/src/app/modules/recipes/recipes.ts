@@ -50,7 +50,6 @@ export class RecipeService {
   eliminarReceta(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/listar/recetas/eliminar/${id}`);
   }
-}
 
   // Verifica si el usuario actual le dio like
   verificarLike(idReceta: number): Observable<{ me_gusta: boolean }> {
@@ -80,4 +79,7 @@ export class RecipeService {
     );
   }
 }
+
+  
+
 
