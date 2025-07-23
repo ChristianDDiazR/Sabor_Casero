@@ -1,6 +1,20 @@
 
 <div class="detalle-receta">
   <h2 class="titulo-receta">{{ receta?.nombre_receta }}</h2>
+  <!-- Botón de Me Gusta -->
+  <div class="acciones-receta">
+    <button
+      class="btn-like"
+      [class.liked]="leGusta"
+      (click)="toggleLike()"
+      [disabled]="!usuarioActualId"
+      title="Da like a esta receta">
+      ❤️ {{ leGusta ? 'Te gusta' : 'Me gusta' }}
+    </button>
+    <span class="contador-likes">
+      {{ receta?.me_gusta || 0 }} {{ receta?.me_gusta === 1 ? 'like' : 'likes' }}
+    </span>
+  </div>
 
   <p class="descripcion">{{ receta?.descripcion }}</p>
 

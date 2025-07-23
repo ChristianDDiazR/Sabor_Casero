@@ -125,12 +125,16 @@ export class RecipeList implements OnInit {
   goToLogin() {
     this.router.navigate(['/login']);
   }
-  
+
   irALoginOPerfil(): void {
     if (this.auth.isLoggedIn()) {
       this.router.navigate(['/perfil']); // Ajusta según tu ruta real
     } else {
       this.router.navigate(['/login']);
     }
+  }
+
+  goToFavoritos(): void {
+    this.router.navigate(['/favoritos']);
   }
 }

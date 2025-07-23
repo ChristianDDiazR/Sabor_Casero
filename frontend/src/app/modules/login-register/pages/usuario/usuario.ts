@@ -174,4 +174,10 @@ export class Usuario implements OnInit {
     this.router.navigate(['/']);
   }
 
+
+
+  irAEditar(): void {
+  this.router.navigate(['/editar-usuario']);
+  }
+
 }

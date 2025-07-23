@@ -4,11 +4,8 @@
     <div class="perfil-header">
       <h2 class="perfil-titulo">Mi Perfil</h2>
       <div class="perfil-foto-wrapper">
-        <img
-          class="perfil-foto"
-          [src]="usuario.foto_perfil || 'assets/profile-icon-login-head-icon-vector.jpg'"
-          alt="Foto de perfil"
-        />
+        <img class="perfil-foto" [src]="usuario.foto_perfil || 'assets/profile-icon-login-head-icon-vector.jpg'"
+          alt="Foto de perfil" />
       </div>
     </div>
 
@@ -37,6 +34,9 @@
         <span class="info-label">Email:</span>
         <span class="info-valor">{{ usuario.mail }}</span>
       </div>
+    </div>
+    <div class="perfil-acciones">
+      <button class="btn-primario" (click)="irAEditar()">Editar Perfil</button>
     </div>
 
     <div class="perfil-acciones">

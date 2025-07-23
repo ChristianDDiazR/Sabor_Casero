@@ -43,6 +43,63 @@ const obtenerCategorias = (callback) => {
   `;
   db.query(query, callback);
 };
+//DAR ME GUSTA-------------------------
+// Verificar si un usuario ya dio like a una receta
+const haDadoLike = (id_usuario, id_receta, callback) => {
+  const query = 'SELECT * FROM ME_GUSTA WHERE id_usuario = ? AND id_receta = ?';
+  db.query(query, [id_usuario, id_receta], callback);
+};
+
+// Dar me gusta
+const darLike = (id_usuario, id_receta, callback) => {
+  const queryInsert = 'INSERT INTO ME_GUSTA (id_usuario, id_receta) VALUES (?, ?)';
+  db.query(queryInsert, [id_usuario, id_receta], (err, result) => {
+    if (err) return callback(err);
+
+    // Actualizar contador en RECETA
+    const queryUpdate = 'UPDATE RECETA SET me_gusta = me_gusta + 1 WHERE id_receta = ?';
+    db.query(queryUpdate, [id_receta], callback);
+  });
+};
+
+// Quitar me gusta
+const quitarLike = (id_usuario, id_receta, callback) => {
+  const queryDelete = 'DELETE FROM ME_GUSTA WHERE id_usuario = ? AND id_receta = ?';
+  db.query(queryDelete, [id_usuario, id_receta], (err, result) => {
+    if (err) return callback(err);
+
+    // Disminuir contador
+    const queryUpdate = 'UPDATE RECETA SET me_gusta = me_gusta - 1 WHERE id_receta = ?';
+    db.query(queryUpdate, [id_receta], callback);
+  });
+};
+
+// Obtener recetas favoritas de un usuario
+const obtenerFavoritosPorUsuario = (id_usuario, callback) => {
+  const query = `
+    SELECT r.*, u.nombre_usuario, c.nombre_categoria 
+    FROM RECETA r
+    JOIN ME_GUSTA mg ON r.id_receta = mg.id_receta
+    JOIN USUARIO u ON r.id_usuarioReceta = u.id_usuario
+    JOIN CATEGORIA c ON r.id_categoria = c.id_categoria
+    WHERE mg.id_usuario = ?
+  `;
+  //db.query(query, [id_usuario], callback);
+  db.query(query, [id_usuario], (err, results) => {
+    if (err) return callback(err);
+
+    // ✅ Convertir imágenes a base64
+    const favoritosConImagen = results.map(receta => {
+      if (receta.imagen && Buffer.isBuffer(receta.imagen)) {
+        receta.imagen = receta.imagen.toString('base64');
+      }
+      return receta;
+    });
+
+    callback(null, favoritosConImagen);
+  });
+};
+//DAR ME GUSTA-------------------------
 
 // 🔥 Nueva función: buscar por filtros múltiples (search y/o category)
 const buscarRecipesPorFiltros = (filtros, callback) => {
@@ -190,5 +247,11 @@ module.exports = {
   agregarRecipe,
   editarRecipe,
   eliminarRecipe,
-  obtenerRecipesPorUsuario
+  obtenerRecipesPorUsuario,
+  buscarRecipesPorFiltros, // 👈 Exportamos la nueva función aquí
+  haDadoLike,
+  darLike,
+  quitarLike,
+  obtenerFavoritosPorUsuario
+
 };
