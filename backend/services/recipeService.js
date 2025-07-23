@@ -153,20 +153,26 @@ const agregarRecipe = (data, callback) => {
       imagen
     ) VALUES (?, ?, ?, NOW(), ?, ?, ?)
   `;
-  
-  // Si no hay imagen, enviar NULL
+  // Convertir base64 a Buffer si se proporciona imagen
+  let imagenBuffer = null;
+  if (data.imagen) {
+    // Asumimos que viene como "data:image/jpeg;base64,..."
+    // Extraer solo la parte base64 si es una URL de datos completa
+    const base64Data = data.imagen.replace(/^data:image\/\w+;base64,/, '');
+    imagenBuffer = Buffer.from(base64Data, 'base64'); // Convertir a Buffer binario
+  }
+
   const params = [
     data.id_usuarioReceta,
     data.nombre_receta,
     data.descripcion,
     data.calificacion,
     data.id_categoria,
-    data.imagen || null
+    imagenBuffer // Pasar el Buffer o null
   ];
-
   db.query(query, params, (err, result) => {
     if (err) return callback(err, null);
-    callback(null, result.insertId); // Devuelve el ID de la receta creada
+    callback(null, result.insertId);
   });
 };
 
@@ -182,19 +188,25 @@ const editarRecipe = (id, data, callback) => {
       imagen = ?
     WHERE id_receta = ?
   `;
+  // Convertir base64 a Buffer si se proporciona imagen
+  let imagenBuffer = null;
+  if (data.imagen) {
+    // Extraer solo la parte base64 si es una URL de datos completa
+    const base64Data = data.imagen.replace(/^data:image\/\w+;base64,/, '');
+    imagenBuffer = Buffer.from(base64Data, 'base64'); // Convertir a Buffer binario
+  }
 
   const params = [
     data.nombre_receta,
     data.descripcion,
     data.calificacion,
     data.id_categoria,
-    data.imagen || null, // Si no hay imagen, deja NULL
+    imagenBuffer, // Pasar el Buffer o null
     id
   ];
-
   db.query(query, params, (err, result) => {
     if (err) return callback(err, null);
-    callback(null, result.affectedRows > 0); // Devuelve true si se actualizó algo
+    callback(null, result.affectedRows > 0);
   });
 };
 
